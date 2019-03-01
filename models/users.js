@@ -72,6 +72,7 @@ module.exports = function(sequelize, DataTypes) {
               }
             }
         },
+        //Refers to whether the user is currently active in the database
         active: {
             type: DataTypes.BOOLEAN,
             allowNull: false,
@@ -82,7 +83,16 @@ module.exports = function(sequelize, DataTypes) {
         },
         updatedAt: {
             type: DataTypes.DATE,
-        }
+        },
+        //For authentication
+        last_login: {
+          type: Sequelize.DATE
+        },
+        //Refers to whether the user is active in a session
+        status: {
+          type: Sequelize.ENUM('active', 'inactive'),
+          defaultValue: 'active'
+        },
     });
   
     Users.associate = function(models) {
