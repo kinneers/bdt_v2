@@ -1,5 +1,3 @@
-require('sequelize-isunique-validator')(Sequelize)
-
 module.exports = function(sequelize, DataTypes) {
     const Users = sequelize.define("Users", {
         userName: {
@@ -55,11 +53,12 @@ module.exports = function(sequelize, DataTypes) {
             validate: {
               isEmail: {
                 msg: "Not a valid email address"
-              },
-              isUnique: connection.validateIsUnique(
-                "email",
-                "This email address already exists"
-              )
+              }
+              //,
+              // isUnique: connection.validateIsUnique(
+              //   "email",
+              //   "This email address already exists"
+              // )
             }
           },
         role: {
@@ -72,6 +71,7 @@ module.exports = function(sequelize, DataTypes) {
               }
             }
         },
+        //Refers to whether the user is currently active in the database
         active: {
             type: DataTypes.BOOLEAN,
             allowNull: false,
@@ -82,7 +82,16 @@ module.exports = function(sequelize, DataTypes) {
         },
         updatedAt: {
             type: DataTypes.DATE,
-        }
+        },
+        //For authentication
+        last_login: {
+          type: DataTypes.DATE
+        },
+        //Refers to whether the user is active in a session
+        status: {
+          type: DataTypes.ENUM('active', 'inactive'),
+          defaultValue: 'active'
+        },
     });
   
     Users.associate = function(models) {
