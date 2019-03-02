@@ -46,6 +46,7 @@ models.sequelize.sync().then(function() {
       }
       else {
           console.log('Something went wrong...');
+          console.log('Call a doctor!...');
       }
   });
 });
