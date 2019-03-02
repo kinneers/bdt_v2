@@ -39,8 +39,9 @@ module.exports = function(sequelize, DataTypes) {
         email: {
             type: DataTypes.STRING(100),
             allowNull: false,
-            unique: true,
+            unique: true
           },
+        //Refers to whether the user is currently active in the database
         active: {
             type: DataTypes.BOOLEAN,
             allowNull: false,
@@ -51,7 +52,16 @@ module.exports = function(sequelize, DataTypes) {
         },
         updatedAt: {
             type: DataTypes.DATE,
-        }
+        },
+        //For authentication
+        last_login: {
+          type: DataTypes.DATE
+        },
+        //Refers to whether the user is active in a session
+        status: {
+          type: DataTypes.ENUM('active', 'inactive'),
+          defaultValue: 'active'
+        },
     });
   
     return Admins;

@@ -1,8 +1,12 @@
 {
     "env": {
         "browser": true,
+<<<<<<< HEAD
         "es6": true,
         "node": true
+=======
+        "es6": true
+>>>>>>> 6cfe4a60d332a75a8feac14798339726f3103cfd
     },
     "extends": "eslint:recommended",
     "globals": {
