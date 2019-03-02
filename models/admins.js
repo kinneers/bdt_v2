@@ -1,7 +1,5 @@
-require('sequelize-isunique-validator')(Sequelize)
-
 module.exports = function(sequelize, DataTypes) {
-    const Users = sequelize.define("Users", {
+    const Admins = sequelize.define("Admins", {
         userName: {
             type: DataTypes.STRING(10),
             allowNull: false,
@@ -38,40 +36,11 @@ module.exports = function(sequelize, DataTypes) {
               }
             }
         },
-        authLevel: {
-            type: DataTypes.STRING(20),
-            allowNull: false,
-            validate: {
-              len: {
-                  args: [1, 20],
-                  msg: "Authorization Level exceeds 20 characters"
-              }
-            }
-        },
         email: {
             type: DataTypes.STRING(100),
             allowNull: false,
             unique: true,
-            validate: {
-              isEmail: {
-                msg: "Not a valid email address"
-              },
-              isUnique: connection.validateIsUnique(
-                "email",
-                "This email address already exists"
-              )
-            }
           },
-        role: {
-            type: DataTypes.STRING(20),
-            allowNull: false,
-            validate: {
-              len: {
-                  args: [1, 20],
-                  msg: "Role exceeds 20 characters"
-              }
-            }
-        },
         active: {
             type: DataTypes.BOOLEAN,
             allowNull: false,
@@ -85,17 +54,5 @@ module.exports = function(sequelize, DataTypes) {
         }
     });
   
-    Users.associate = function(models) {
-      // Associating User with Teachers
-      Users.hasMany(models.Teachers, {
-      });
-    };
-
-    Users.associate = function(models) {
-        // Associating User with Students
-        Users.hasMany(models.Students, {
-        });
-      };
-  
-    return Users;
+    return Admins;
   };
