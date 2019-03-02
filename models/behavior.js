@@ -3,7 +3,7 @@ module.exports = function(sequelize, DataTypes) {
         id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
-            autoIncrement: true,
+            autoIncrement: true
         },
         active: {
             type: DataTypes.BOOLEAN,
@@ -16,21 +16,21 @@ module.exports = function(sequelize, DataTypes) {
         },
         goalMet: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            allowNull: false
         },
         goalTracked: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            allowNull: false
         },
         average: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            allowNull: false
         },
         createdAt: {
-            type: DataTypes.DATE,
+            type: DataTypes.DATE
         },
         updatedAt: {
-            type: DataTypes.DATE,
+            type: DataTypes.DATE
         }
     });
 

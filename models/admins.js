@@ -47,15 +47,15 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false,
             defaultValue: true
           },
-        createdAt: {
-            type: DataTypes.TIMESTAMP,
-        },
-        updatedAt: {
-            type: DataTypes.TIMESTAMP,
+          createdAt: {
+              type: DataTypes.DATE
+          },
+          updatedAt: {
+              type: DataTypes.DATE
         },
         //For authentication
         last_login: {
-          type: DataTypes.TIMESTAMP
+          type: DataTypes.DATE
         },
         //Refers to whether the user is active in a session
         status: {
