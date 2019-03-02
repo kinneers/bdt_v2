@@ -49,22 +49,22 @@ module.exports = function(sequelize, DataTypes) {
         email: {
             type: DataTypes.STRING(100),
             allowNull: false,
-            unique: true,
-          },
+            unique: true
+        },
         active: {
             type: DataTypes.BOOLEAN,
             allowNull: false,
             defaultValue: true
-          },
+        },
         createdAt: {
-            type: DataTypes.TIMESTAMP,
+            type: DataTypes.DATE
         },
         updatedAt: {
-            type: DataTypes.TIMESTAMP,
+            type: DataTypes.DATE
         },
         //For authentication
         last_login: {
-          type: DataTypes.TIMESTAMP
+          type: DataTypes.DATE
         },
         //Refers to whether the user is active in a session
         status: {

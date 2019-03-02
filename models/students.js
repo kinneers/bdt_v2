@@ -14,7 +14,7 @@ module.exports = function(sequelize, DataTypes) {
         },
         userPassword: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: false
         },
         firstName: {
             type: DataTypes.STRING(50),
@@ -40,16 +40,16 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.BOOLEAN,
             allowNull: false,
             defaultValue: true
-          },
+        },
         createdAt: {
-            type: DataTypes.TIMESTAMP,
+            type: DataTypes.DATE
         },
         updatedAt: {
-            type: DataTypes.TIMESTAMP,
+            type: DataTypes.DATE
         },
         //For authentication
         last_login: {
-            type: DataTypes.TIMESTAMP
+            type: DataTypes.DATE
           },
           //Refers to whether the user is active in a session
           status: {
