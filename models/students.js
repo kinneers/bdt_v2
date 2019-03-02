@@ -42,11 +42,20 @@ module.exports = function(sequelize, DataTypes) {
             defaultValue: true
           },
         createdAt: {
-            type: DataTypes.DATE,
+            type: DataTypes.TIMESTAMP,
         },
         updatedAt: {
-            type: DataTypes.DATE,
-        }
+            type: DataTypes.TIMESTAMP,
+        },
+        //For authentication
+        last_login: {
+            type: DataTypes.TIMESTAMP
+          },
+          //Refers to whether the user is active in a session
+          status: {
+            type: DataTypes.ENUM('active', 'inactive'),
+            defaultValue: 'active'
+          }
     });
 
     Students.associate = function(models) {
