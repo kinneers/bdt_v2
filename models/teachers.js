@@ -50,12 +50,12 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING(100),
             allowNull: false,
             unique: true
-        },
+          },
         active: {
             type: DataTypes.BOOLEAN,
             allowNull: false,
             defaultValue: true
-        },
+          },
         createdAt: {
             type: DataTypes.DATE
         },
