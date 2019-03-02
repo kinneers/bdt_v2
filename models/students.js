@@ -3,6 +3,7 @@ module.exports = function(sequelize, DataTypes) {
         userName: {
             type: DataTypes.STRING(10),
             allowNull: false,
+            primaryKey: true,
             unique: true,
             validate: {
               len: {
@@ -10,6 +11,10 @@ module.exports = function(sequelize, DataTypes) {
                   msg: "Username exceeds 10 characters"
               }
             }
+        },
+        userPassword: {
+            type: DataTypes.STRING,
+            allowNull: false,
         },
         firstName: {
             type: DataTypes.STRING(50),
@@ -31,23 +36,34 @@ module.exports = function(sequelize, DataTypes) {
               }
             }
         },
+        active: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: true
+          },
         createdAt: {
             type: DataTypes.DATE,
         },
         updatedAt: {
             type: DataTypes.DATE,
         }
-  });
+    });
 
-  Students.associate = function(models) {
-      // We're saying that a Student should belong to an teacher
-      // A Student can't be created without an teacher due to the foreign key constraint
-      Students.belongsTo(models.Teachers, {
-        foreignKey: {
-          allowNull: false
-        }
-      });
-    };
+    Students.associate = function(models) {
+        // We're saying that a Student should belong to an teacher
+        // A Student can't be created without an teacher due to the foreign key constraint
+        Students.belongsToMany(models.Teachers, {
+            through: models.teacherstudents,
+            as: "Teachers", 
+            foreignkey: "teacherId"
+          });
+        };
+      
+    Students.associate = function(models) {
+        // Associating Students with Behavior
+        Students.hasMany(models.Behavior, {
+        });
+      };
 
   return Students;
 };
