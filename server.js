@@ -13,7 +13,7 @@ app.get('/', function(req, res) {
 });
 
 //Require models
-var db = require("./models");
+var models = require("./models");
 
 // Serve static content for the app from the "public" directory in the application directory.
 //THIS WILL CHANGE WITH AUTHENTICATION- not sure if it will be used or not
@@ -39,7 +39,7 @@ app.use(passport.session()); //persistent login sessions
 // require("./routes/teacher-routes.js")(app);
 
 //Set up db and start server listening
-db.sequelize.sync().then(function() {
+models.sequelize.sync().then(function() {
   app.listen(PORT, function(err) {
       if (!err) {
         console.log("Listening on port: " + PORT);

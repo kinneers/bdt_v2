@@ -32,12 +32,12 @@ module.exports = function(sequelize, DataTypes) {
   Teachers.associate = function(models) {
     // We're saying that a Teacher should belong to an userName
     // A Teacher can't be created without an userName due to the foreign key constraint
-    Teachers.belongsTo(models.userName, {
+    Teachers.belongsTo(models.Users, {
       foreignKey: {
         allowNull: false
       }
-    });
-  };
+  });
+};
 
   return Teachers;
 };
