@@ -3,7 +3,7 @@ var passport = require('passport');
 var ConnectRoles = require('connect-roles');
 var express = require('express');
 var session = require('express-session');
-var env = require('dotenv').load();
+require('dotenv').load();
 var exphbs = require('express-handlebars');
 var path = require('path');
 
@@ -23,6 +23,10 @@ app.use(session({
 })); //session secret
 app.use(passport.initialize());
 app.use(passport.session()); //persistent login sessions
+
+// Serve static content for the app from the "public" directory in the application directory.
+// Routes will take care of authentication and serving the correct pages
+app.use(express.static("public"));
 
 // //For Connect-roles
 // app.use(user.middleware());
@@ -117,10 +121,6 @@ var authRoute = require('./routes/auth.js')(app, passport); //Adds auth.js as an
 
 // Load Passport Strategies (keep below the routes import)
 require('./config/passport/passport.js')(passport, models.user);
-
-// Serve static content for the app from the "public" directory in the application directory.
-//THIS WILL CHANGE WITH AUTHENTICATION- not sure yet if it will be used or not
-//app.use(express.static("public"));
 
 //Set up db and start server listening
 models.sequelize.sync().then(function() {

@@ -20,59 +20,59 @@ module.exports = function(passport, user) {
         });
     });
 
-    // //Local strategy for signup (will be needed for use when signing users up as the password encryption is here)
-    // passport.use('local-signup', new LocalStrategy(
-    //     {
-    //         usernameField: 'email',
-    //         passwordField: 'password',
-    //         passReqToCallback: true //allows us to pass back the entire request to the callback
-    //     },
-    //     function(req, email, password, done) {
-    //         var generateHash = function(password) {
-    //             return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
-    //         };
+    //Local strategy for signup (will be needed for use when signing users up as the password encryption is here)
+    passport.use('local-signup', new LocalStrategy(
+        {
+            usernameField: 'username',
+            passwordField: 'password',
+            passReqToCallback: true //allows us to pass back the entire request to the callback
+        },
+        function(req, username, password, done) {
+            var generateHash = function(password) {
+                return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
+            };
     
-    //     User.findOne({
-    //             where: {
-    //                 email: email
-    //             }
-    //         }).then(function(user) {
-    //             if (user) {
-    //                 return done(null, false, {
-    //                     message: 'That email is already taken'
-    //                 });
-    //             } else {
-    //                 var userPassword = generateHash(password);
-    //                 var data = 
-    //                     {
-    //                         email: email,
-    //                         password: userPassword,
-    //                         firstname: req.body.firstname,
-    //                         lastname: req.body.lastname
-    //                     };
-    //                 User.create(data).then(function(newUser, created) {
-    //                     if (!newUser) {
-    //                         return done(null, false);
-    //                     }
-    //                     if (newUser) {
-    //                         return done(null, newUser);
-    //                     }
-    //                 });
-    //             }
-    //         });
-    //     }
-    // ));
+        User.findOne({
+                where: {
+                    username: username
+                }
+            }).then(function(user) {
+                if (user) {
+                    return done(null, false, {
+                        message: 'That username is already taken'
+                    });
+                } else {
+                    var userPassword = generateHash(password);
+                    var data = 
+                        {
+                            username: username,
+                            password: userPassword,
+                            firstname: req.body.firstname,
+                            lastname: req.body.lastname
+                        };
+                    User.create(data).then(function(newUser, created) {
+                        if (!newUser) {
+                            return done(null, false);
+                        }
+                        if (newUser) {
+                            return done(null, newUser);
+                        }
+                    });
+                }
+            });
+        }
+    ));
 
     //Local strategy for sign-in
     passport.use('local-signin', new LocalStrategy(
         {
             //by default, local strategy uses username and password- it is overridden here with email
-            usernameField: 'email',
+            usernameField: 'username',
             passwordField: 'password',
             passReqToCallback: true //allows the entire request to be passed to the callback
         },
 
-        function(req, email, password, done) {
+        function(req, username, password, done) {
             var User = user;
             //Compares password using the same method we used to encrypt it
             var isValidPassword = function(userpass, password) {
@@ -80,19 +80,19 @@ module.exports = function(passport, user) {
             }
             User.findOne({
                 where: {
-                    email: email
+                    username: username
                 }
             }).then(function(user) {
                 //Checks that the user exists in the database
                 if (!user) {
                     return done(null, false, {
-                        message: 'Email does not exist.'
+                        message: 'Username does not exist.'
                     });
                 }
                 //Checks that the user has entered the correct password
                 if (!isValidPassword(user.password, password)) {
                     return done(null, false, {
-                        message: 'Incorrect password.'
+                        message: 'Incorrect credentials. Please try again.'
                     });
                 }
 
