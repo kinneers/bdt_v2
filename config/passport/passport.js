@@ -20,48 +20,48 @@ module.exports = function(passport, user) {
         });
     });
 
-    //Local strategy for signup (will be needed for use when signing users up as the password encryption is here)
-    passport.use('local-signup', new LocalStrategy(
-        {
-            usernameField: 'email',
-            passwordField: 'password',
-            passReqToCallback: true //allows us to pass back the entire request to the callback
-        },
-        function(req, email, password, done) {
-            var generateHash = function(password) {
-                return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
-            };
+    // //Local strategy for signup (will be needed for use when signing users up as the password encryption is here)
+    // passport.use('local-signup', new LocalStrategy(
+    //     {
+    //         usernameField: 'email',
+    //         passwordField: 'password',
+    //         passReqToCallback: true //allows us to pass back the entire request to the callback
+    //     },
+    //     function(req, email, password, done) {
+    //         var generateHash = function(password) {
+    //             return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
+    //         };
     
-        User.findOne({
-                where: {
-                    email: email
-                }
-            }).then(function(user) {
-                if (user) {
-                    return done(null, false, {
-                        message: 'That email is already taken'
-                    });
-                } else {
-                    var userPassword = generateHash(password);
-                    var data = 
-                        {
-                            email: email,
-                            password: userPassword,
-                            firstname: req.body.firstname,
-                            lastname: req.body.lastname
-                        };
-                    User.create(data).then(function(newUser, created) {
-                        if (!newUser) {
-                            return done(null, false);
-                        }
-                        if (newUser) {
-                            return done(null, newUser);
-                        }
-                    });
-                }
-            });
-        }
-    ));
+    //     User.findOne({
+    //             where: {
+    //                 email: email
+    //             }
+    //         }).then(function(user) {
+    //             if (user) {
+    //                 return done(null, false, {
+    //                     message: 'That email is already taken'
+    //                 });
+    //             } else {
+    //                 var userPassword = generateHash(password);
+    //                 var data = 
+    //                     {
+    //                         email: email,
+    //                         password: userPassword,
+    //                         firstname: req.body.firstname,
+    //                         lastname: req.body.lastname
+    //                     };
+    //                 User.create(data).then(function(newUser, created) {
+    //                     if (!newUser) {
+    //                         return done(null, false);
+    //                     }
+    //                     if (newUser) {
+    //                         return done(null, newUser);
+    //                     }
+    //                 });
+    //             }
+    //         });
+    //     }
+    // ));
 
     //Local strategy for sign-in
     passport.use('local-signin', new LocalStrategy(
