@@ -92,9 +92,9 @@ app.get('/log-in', function(req, res) {
 });
 
 //Route to any unknown page loads log-in.html
-app.get('/*', function(req, res) {
-    res.sendFile(path.join(__dirname, "./public/log-in.html"));
-});
+// app.get('/*', function(req, res) {
+//     res.sendFile(path.join(__dirname, "./public/log-in.html"));
+// });
 
 // //Not sure if 'private' is right here...
 // app.get('/student', user.can('access student page and his/her own data'), function(req, res){
