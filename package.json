@@ -1,7 +1,7 @@
 {
   "name": "bdt_v2",
   "version": "1.0.0",
-  "description": "",
+  "description": "Behavioral Data Tracker v.2",
   "main": "server.js",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
@@ -22,6 +22,14 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "Kineer/Sterling/Woodard",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kinneers/bdt_v2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kinneers/bdt_v2/issues"
+  },
+  "homepage": "https://github.com/kinneers/bdt_v2#readme"
 }

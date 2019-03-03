@@ -42,6 +42,11 @@ module.exports = function(sequelize, Sequelize) {
             type: Sequelize.DATE
         },
  
+        role: {
+            type: Sequelize.ENUM('student', 'staff', 'admin'),
+            defaultValue: 'student'
+        },
+
         status: {
             type: Sequelize.ENUM('active', 'inactive'),
             defaultValue: 'active'
