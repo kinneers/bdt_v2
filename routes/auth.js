@@ -30,6 +30,7 @@ module.exports = function(app, passport) {
 
     //SARAH STILL NEEDS TO FIGURE OUT HOW TO END THE SESSION WITH LOGOUT!!!!
     app.get("/logout", function(req, res) {
+        req.logout();
         res.sendFile(path.join(__dirname, "../public/log-in.html"));
     });
 
