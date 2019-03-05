@@ -7,9 +7,9 @@
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="description" content="">
     <title>Log In</title>
-    <link href="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.css" rel="stylesheet">
-    <link href="css/jqvmap.css" rel="stylesheet">
-    <link href="css/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
+    <!-- <link href="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.css" rel="stylesheet"> -->
+    <!-- <link href="css/jqvmap.css" rel="stylesheet"> -->
+    <!-- <link href="css/flag-icon-css/css/flag-icon.min.css" rel="stylesheet"> -->
     <!-- Fullcalendar-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.7.0/fullcalendar.min.css" rel="stylesheet">
     <!-- Materialize-->
@@ -155,45 +155,40 @@
       <div class="card card-login">
         <div class="card-login-splash">
           <div class="wrapper">
-            <h3>Account</h3>
+            <h3>Sign in to the Behavioral Data Tracker</h3>
 
-            <a class="btn" href="#!">Sign In</a>
-            <a class="btn" href="#!">Register</a>
+            <!-- <a class="btn" href="#!">Sign In</a>
+            <a class="btn" href="#!">Register</a> -->
           </div>
 
           <img src="img/geometric-cave.jpg" alt="">
         </div>
         <div class="card-content">
           <span class="card-title">Log In</span>
-
           <form id="signin" name="signin" method="post" action="signin">
-            <div class="input-field">
-              <input id="username" type="text" class="validate">
-              <label for="username">Username</label>
-            </div>
-            <div class="input-field">
-              <input id="password" type="password" class="validate">
-              <label for="password">Password</label>
-            </div>
+            <label for="username">Username</label>
+            <input name="username" type="text" />
+            <label for="password">Password</label>
+            <input name="password" type="password" />
+            <input class="btn" type="submit" value="Sign In" />
+        </form>
 
-            <!-- <a href="#!">Forgot Password?</a> -->
-
-            <br><br>
-            <div>
-                <input class="btn" type="submit" value="Sign In" />
-              <!-- <a href="#!" class="btn-flat">Back</a> -->
-            </div>
-
-          </form>
+                <!-- <label for="email">Email Address</label>
+                <input class="text" id="email" name="email" type="text" />
+                <label for="password">Password</label>
+                <input name="password" id="password" type="password" />-->
+                <!-- <a href="#!">Forgot Password?</a> -->
+               <!-- <button id="signIn">Sign in</button> -->
         </div>
       </div>
-
     </div>
   </div>
 
 </div>
 
-    </main><footer class="page-footer">
+    </main>
+
+<!-- <footer class="page-footer">
   <div class="container">
     <div class="row">
       <div class="col s6 m3">
@@ -226,7 +221,9 @@
       </div>
     </div>
   </div>
-</footer><!-- Scripts -->
+</footer> -->
+
+<!-- Scripts -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="js/materialize.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.2/moment.min.js"></script>
@@ -234,23 +231,24 @@
 <!-- External libraries -->
 
 <!-- jqvmap -->
-<script type="text/javascript" src="js/jqvmap/jquery.vmap.min.js"></script>
+<!-- <script type="text/javascript" src="js/jqvmap/jquery.vmap.min.js"></script>
 <script type="text/javascript" src="js/jqvmap/jquery.vmap.world.js" charset="utf-8"></script>
-<script type="text/javascript" src="js/jqvmap/jquery.vmap.sampledata.js"></script>
+<script type="text/javascript" src="js/jqvmap/jquery.vmap.sampledata.js"></script> -->
 
 <!-- ChartJS -->
-<script type="text/javascript" src="js/Chart.js"></script>
-<script type="text/javascript" src="js/Chart.Financial.js"></script>
+<!-- <script type="text/javascript" src="js/Chart.js"></script>
+<script type="text/javascript" src="js/Chart.Financial.js"></script> -->
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.7.0/fullcalendar.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script>
+<!-- <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script> -->
 <script src="js/imagesloaded.pkgd.min.js"></script>
-<script src="js/masonry.pkgd.min.js"></script>
+<!-- <script src="js/masonry.pkgd.min.js"></script> -->
 
 
 <!-- Initialization script -->
-<script src="js/admin.js"></script>
-    <script src="js/init.js"></script>
+<!-- <script src="js/admin.js"></script> -->
+    <!-- <script src="js/init.js"></script> -->
+    <script src="/js/script.js"></script>
   </body>
 </html>

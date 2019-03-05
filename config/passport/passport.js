@@ -3,23 +3,7 @@ var bCrypt = require('bcrypt-nodejs');
 module.exports = function(passport, user) {
     var User = user;
     var LocalStrategy = require('passport-local').Strategy;
-
-    //Serialize function- saves user id in session to use to manage retreiving user details when needed
-    passport.serializeUser(function(user, done) {
-        done(null, user.id);
-    });
-
-    //Deserialize function- uses Sequelize findById promise to get user and, if successful, return instance of Sequelize model
-    passport.deserializeUser(function(id, done) {
-        User.findById(id).then(function(user) {
-            if (user) {
-                done(null, user.get());
-            } else {
-                done(user.errors, null);
-            }
-        });
-    });
-
+    
     //Local strategy for signup (will be needed for use when signing users up as the password encryption is here)
     passport.use('local-signup', new LocalStrategy(
         {
@@ -66,7 +50,7 @@ module.exports = function(passport, user) {
     //Local strategy for sign-in
     passport.use('local-signin', new LocalStrategy(
         {
-            //by default, local strategy uses username and password- it is overridden here with email
+            //by default, local strategy uses username and password
             usernameField: 'username',
             passwordField: 'password',
             passReqToCallback: true //allows the entire request to be passed to the callback
@@ -98,6 +82,7 @@ module.exports = function(passport, user) {
 
                 var userinfo = user.get();
                 return done(null, userinfo);
+                
             }).catch(function(err) {
                 // eslint-disable-next-line no-console
                 console.log("Error: ", err);
@@ -107,4 +92,20 @@ module.exports = function(passport, user) {
             });
         }
     ));
+
+    //Serialize function- saves user id in session to use to manage retreiving user details when needed
+    passport.serializeUser(function(user, done) {
+        done(null, user.id);
+    });
+
+    //Deserialize function- uses Sequelize findById promise to get user and, if successful, return instance of Sequelize model
+    passport.deserializeUser(function(id, done) {
+        User.findById(id).then(function(user) {
+            if (user) {
+                done(null, user);
+            } else {
+                done(user.errors, null);
+            }
+        });
+    });
 }
