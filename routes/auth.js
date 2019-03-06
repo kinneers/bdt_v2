@@ -42,15 +42,6 @@ module.exports = function(app, passport) {
         failureRedirect: '/signin',
     }));
 
-    app.get("/teacher/students", isLoggedIn, function(req, res){
-        models.Students.findAll({
-            
-        }).then(function(dbData){
-            console.log(dbData);
-            res.JSON(dbData);
-        });
-    });
-
     //PLEASE KEEP THIS LAST IN ORDER
     //Custom middleware to protect dashboard route
     function isLoggedIn(req, res, next) {

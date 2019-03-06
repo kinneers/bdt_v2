@@ -9,7 +9,7 @@ chai.use(chaiHttp);
 
 var request;
 
-describe("GET /", function() {
+describe("GET /users", function() {
   // Before each test begins, create a new request server for testing
   // & delete all examples from the db
   beforeEach(function() {

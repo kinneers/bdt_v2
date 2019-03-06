@@ -129,7 +129,7 @@ module.exports = function(sequelize, DataTypes) {
         behavior_score20: {
             type: DataTypes.INTEGER
         },
-        behavior_tim21: {
+        behavior_time21: {
             type: DataTypes.TIME
         },
         behavior_score21: {

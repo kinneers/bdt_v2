@@ -10,9 +10,10 @@
     function getStudents() {
         $.get("/teacher/students", function(dbData) {
           console.log(dbData);
-          data.forEach((dbData, i) => {
+          data = dbData;
+          data.forEach((e, i) => {
             return (
-              dbData.push(
+              e.push(
                 `<form><label><input class="with-gap" value="1" name="group-${i}" type="radio"/>
             <span>Met</span> </label>
             <label><input class="with-gap" value="0" name="group-${i}" type="radio"/>
