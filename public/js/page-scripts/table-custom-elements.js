@@ -14,9 +14,7 @@
           `<form><label><input class="with-gap" value="1" name="group-${i}" type="radio"/>
       <span>Met</span> </label>
       <label><input class="with-gap" value="0" name="group-${i}" type="radio"/>
-      <span>Not Met</span></label>
-      <label> <input class="with-gap" value="null" name="group-${i}" type="radio"/>
-      <span>N/A</span></label></form>`
+      <span>Not Met</span></label>`
         )
       )
     });

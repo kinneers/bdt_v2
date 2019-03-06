@@ -29,8 +29,9 @@
         </nav>
       </div>
       <ul id="sidenav-left" class="sidenav sidenav-fixed">
-        <li><a href="dashboard.html" class="logo-container">Admin<i class="material-icons left">spa</i></a></li>
-        <li class="no-padding">
+        <!--Let's replace this with the user's name-->
+        <li><a href="dashboard.html" class="logo-container">Teacher<i class="material-icons left">spa</i></a></li>
+        <!--<li class="no-padding">
           <ul class="collapsible collapsible-accordion">
             <li class="bold waves-effect"><a class="collapsible-header">Pages<i class="material-icons chevron">chevron_left</i></a>
               <div class="collapsible-body">
@@ -109,29 +110,27 @@
           </div>
           <div class="card-action"><a href="#!">view</a><a href="#!">dismiss</a></div>
         </div>
-      </div>
+      </div>-->
       <div id="chat-dropdown" class="dropdown-content dropdown-tabbed">
         <ul class="tabs tabs-fixed-width">
           <li class="tab col s3"><a href="#settings">Settings</a></li>
-          <li class="tab col s3"><a href="#friends" class="active">Friends</a></li>
+          <!--<li class="tab col s3"><a href="#friends" class="active">Friends</a></li>-->
         </ul>
         <div id="settings" class="col s12">
           <div class="settings-group">
-            <div class="setting">Night Mode
               <div class="switch right">
                 <label>
-                  <input type="checkbox"><span class="lever"></span>
+                  <input type="checkbox"><a href="#!">Log Out</a>
                 </label>
               </div>
-            </div>
-            <div class="setting">Beta Testing
+          <!--<div class="setting">Beta Testing
               <label class="right">
                 <input type="checkbox"><span></span>
               </label>
-            </div>
+            </div>-->
           </div>
         </div>
-        <div id="friends" class="col s12">
+        <!--<div id="friends" class="col s12">
           <ul class="collection flush">
             <li class="collection-item avatar">
               <div class="badged-circle online"><img src="img/portrait1.jpg" alt="avatar" class="circle"></div><span class="title">Jane Doe</span>
@@ -146,7 +145,7 @@
               <p class="truncate">Raw denim fingerstache food truck chia health goth synth</p>
             </li>
           </ul>
-        </div>
+        </div>-->
       </div>
     </header>
     <main><!-- Tables -->
@@ -157,7 +156,7 @@
         <table id="table-custom-elements" class="row-border" cellspacing="0" width="100%">
           <thead>
             <tr>
-              <th><label><input class="filled-in select-all" name="select_all" value="1" type="checkbox" /><span></span></label></th>
+              <th></th>
               <th>Student</th>
               <th>Goal</th>
               <th>Current Progress</th>
@@ -173,38 +172,34 @@
 </div>
 
     </main><footer class="page-footer">
-  <div class="container">
-    <div class="row">
-      <div class="col s6 m3">
-        <img class="materialize-logo" src="img/materialize-logo.png" alt="Materialize">
-        <p>Made with love by Materialize.</p>
-      </div>
-      <div class="col s6 m3">
-        <h5>About</h5>
-        <ul>
-          <li><a href="#!">Blog</a></li>
-          <li><a href="#!">Pricing</a></li>
-          <li><a href="#!">Docs</a></li>
-        </ul>
-      </div>
-      <div class="col s6 m3">
-        <h5>Connect</h5>
-        <ul>
-          <li><a href="#!">Community</a></li>
-          <li><a href="#!">Subscribe</a></li>
-          <li><a href="#!">Email</a></li>
-        </ul>
-      </div>
-      <div class="col s6 m3">
-        <h5>Contact</h5>
-        <ul>
-          <li><a href="#!">Twitter</a></li>
-          <li><a href="#!">Facebook</a></li>
-          <li><a href="#!">Github</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
+        <div class="container">
+            <div class="row">
+              <div class="col s6 m3" >
+                <img style="width: 50px; margin-top: 35px;" class="materialize-logo" src="img/materialize-logo.png" alt="Materialize">
+                <p>Made with love by Materialize.</p>
+            </div>
+              <div class="col s6 m3">
+                <h5>Learn</h5>
+                <ul>
+                  <li><a href="#!">Github</a></li>
+                  <li><a href="#!">Docs</a></li>
+                </ul>
+              </div>
+              <div class="col s6 m3">
+                <h5>About</h5>
+                <ul>
+                  <li><a href="#!">Terms of Use</a></li>
+                  <li><a href="#!">Privacy Policy</a></li>
+                </ul>
+              </div>
+              <div class="col s6 m3">
+                <h5>Contact</h5>
+                <ul>
+                  <li><a href="#!">Support</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
 </footer><!-- Scripts -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="js/materialize.min.js"></script>
