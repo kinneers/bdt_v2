@@ -32,7 +32,7 @@ var models = require("./models");
 
 // //Routes
 var authRoute = require('./routes/auth.js')(app, passport); //Adds auth.js as an argument to be passed into auth.js
-// require("./routes/admin-routes.js")(app);
+var teacherRoute = require('./routes/teacher-routes.js')(app, passport);
 
 // Load Passport Strategies (keep below the routes import)
 require('./config/passport/passport.js')(passport, models.user);
