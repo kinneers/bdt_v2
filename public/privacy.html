@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="description" content="">
+    <title>Settings - Admin</title>
+    <link href="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.css" rel="stylesheet">
+    <link href="css/jqvmap.css" rel="stylesheet">
+    <link href="css/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
+    <!-- Fullcalendar-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.7.0/fullcalendar.min.css" rel="stylesheet">
+    <!-- Materialize-->
+    <link href="css/admin-materialize.min.css" rel="stylesheet">
+    <!-- Material Icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body class="has-fixed-sidenav">
+    <header>
+        <div class="navbar-fixed">
+            <nav class="navbar white">
+                <div class="nav-wrapper">
+                    <!--<a href="#!" class="brand-logo grey-text text-darken-4">Behavioral Data Tracker</a>-->
+                    <img style="height: 25px; margin-top: 20px;" src="img/bdt-logo-horizontal.png">
+                    <ul id="nav-mobile" class="right">
+                        <li><a href="#!" data-target="chat-dropdown" class="dropdown-trigger waves-effect"><i
+                                    class="material-icons">settings</i></a></li>
+                    </ul><a href="#!" data-target="sidenav-left" class="sidenav-trigger left"><i
+                            class="material-icons black-text">menu</i></a>
+                </div>
+            </nav>
+        </div>
+        <ul id="sidenav-left" class="sidenav sidenav-fixed">
+            <!--Let's replace this with the user's name-->
+            <li><a href="dashboard.html" class="logo-container">Teacher<i class="material-icons left">spa</i></a></li>
+            <!--<li class="no-padding">
+                    <ul class="collapsible collapsible-accordion">
+                      <li class="bold waves-effect"><a class="collapsible-header">Pages<i class="material-icons chevron">chevron_left</i></a>
+                        <div class="collapsible-body">
+                          <ul>
+                            <li><a href="dashboard.html" class="waves-effect">Dashboard<i class="material-icons">web</i></a></li>
+                            <li><a href="pages-fixed-chart.html" class="waves-effect">Fixed Chart<i class="material-icons">list</i></a></li>
+                            <li><a href="pages-grid.html" class="waves-effect">Grid<i class="material-icons">dashboard</i></a></li>
+                            <li><a href="pages-chat.html" class="waves-effect">Chat<i class="material-icons">chat</i></a></li>
+                          </ul>
+                        </div>
+                      </li>
+                      <li class="bold waves-effect"><a class="collapsible-header">Charts<i class="material-icons chevron">chevron_left</i></a>
+                        <div class="collapsible-body">
+                          <ul>
+                            <li><a href="line-charts.html" class="waves-effect">Line Charts<i class="material-icons">show_chart</i></a></li>
+                            <li><a href="bar-charts.html" class="waves-effect">Bar Charts<i class="material-icons">equalizer</i></a></li>
+                            <li><a href="area-charts.html" class="waves-effect">Area Charts<i class="material-icons">multiline_chart</i></a></li>
+                            <li><a href="doughnut-charts.html" class="waves-effect">Doughnut Charts<i class="material-icons">pie_chart</i></a></li>
+                            <li><a href="financial-charts.html" class="waves-effect">Financial Charts<i class="material-icons">euro_symbol</i></a></li>
+                            <li><a href="interactive-charts.html" class="waves-effect">Interactive Charts<i class="material-icons">touch_app</i></a></li>
+                          </ul>
+                        </div>
+                      </li>
+                      <li class="bold waves-effect active"><a class="collapsible-header">Tables<i class="material-icons chevron">chevron_left</i></a>
+                        <div class="collapsible-body">
+                          <ul>
+                            <li><a href="fullscreen-table.html" class="waves-effect">Fullscreen with Chart<i class="material-icons">show_chart</i></a></li>
+                            <li><a href="table-custom-elements.html" class="waves-effect active">Table with Custom Elements<i class="material-icons">settings</i></a></li>
+                          </ul>
+                        </div>
+                      </li>
+                      <li class="bold waves-effect"><a class="collapsible-header">Calendar<i class="material-icons chevron">chevron_left</i></a>
+                        <div class="collapsible-body">
+                          <ul>
+                            <li><a href="calendar.html" class="waves-effect">Calendar<i class="material-icons">cloud</i></a></li>
+                          </ul>
+                        </div>
+                      </li>
+                      <li class="bold waves-effect"><a class="collapsible-header">Headers<i class="material-icons chevron">chevron_left</i></a>
+                        <div class="collapsible-body">
+                          <ul>
+                            <li><a href="header-tabbed.html" class="waves-effect">Tabbed<i class="material-icons">tab</i></a></li>
+                            <li><a href="header-metrics.html" class="waves-effect">Metrics<i class="material-icons">web</i></a></li>
+                            <li><a href="header-search.html" class="waves-effect">Search<i class="material-icons">search</i></a></li>
+                          </ul>
+                        </div>
+                      </li>
+                      <li class="bold waves-effect"><a class="collapsible-header">Account<i class="material-icons chevron">chevron_left</i></a>
+                        <div class="collapsible-body">
+                          <ul>
+                            <li><a href="log-in.html" class="waves-effect">Log In<i class="material-icons">person</i></a></li>
+                            <li><a href="settings.html" class="waves-effect">Settings<i class="material-icons">settings</i></a></li>
+                          </ul>
+                        </div>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+                <div id="dropdown1" class="dropdown-content notifications">
+                  <div class="notifications-title">notifications</div>
+                  <div class="card">
+                    <div class="card-content"><span class="card-title">Joe Smith made a purchase</span>
+                      <p>Content</p>
+                    </div>
+                    <div class="card-action"><a href="#!">view</a><a href="#!">dismiss</a></div>
+                  </div>
+                  <div class="card">
+                    <div class="card-content"><span class="card-title">Daily Traffic Update</span>
+                      <p>Content</p>
+                    </div>
+                    <div class="card-action"><a href="#!">view</a><a href="#!">dismiss</a></div>
+                  </div>
+                  <div class="card">
+                    <div class="card-content"><span class="card-title">New User Joined</span>
+                      <p>Content</p>
+                    </div>
+                    <div class="card-action"><a href="#!">view</a><a href="#!">dismiss</a></div>
+                  </div>
+                </div>-->
+            <div id="chat-dropdown" class="dropdown-content dropdown-tabbed">
+                <ul class="tabs tabs-fixed-width">
+                    <li class="tab col s3"><a href="#settings">Settings</a></li>
+                    <!--<li class="tab col s3"><a href="#friends" class="active">Friends</a></li>-->
+                </ul>
+                <div id="settings" class="col s12">
+                    <div class="settings-group">
+                        <div class="switch right">
+                            <label>
+                                <input type="checkbox"><a href="#!">Log Out</a>
+                            </label>
+                        </div>
+                        <!--<div class="setting">Beta Testing
+                        <label class="right">
+                          <input type="checkbox"><span></span>
+                        </label>
+                      </div>-->
+                    </div>
+                </div>
+                <!--<div id="friends" class="col s12">
+                    <ul class="collection flush">
+                      <li class="collection-item avatar">
+                        <div class="badged-circle online"><img src="img/portrait1.jpg" alt="avatar" class="circle"></div><span class="title">Jane Doe</span>
+                        <p class="truncate">Lo-fi you probably haven't heard of them</p>
+                      </li>
+                      <li class="collection-item avatar">
+                        <div class="badged-circle"><img src="img/portrait2.jpg" alt="avatar" class="circle"></div><span class="title">John Chang</span>
+                        <p class="truncate">etsy leggings raclette kickstarter four dollar toast</p>
+                      </li>
+                      <li class="collection-item avatar">
+                        <div class="badged-circle"><img src="img/portrait3.jpg" alt="avatar" class="circle"></div><span class="title">Lisa Simpson</span>
+                        <p class="truncate">Raw denim fingerstache food truck chia health goth synth</p>
+                      </li>
+                    </ul>
+                  </div>-->
+            </div>
+    </header>
+    <main>
+        <div class="section container">
+            <div class="row">
+                <div class="col s12 m12">
+                    <span class="settings-title">Privacy Policy</span>
+                    <p>This Privacy Policy governs the manner in which Behavioral Data Tracker LLC collects, uses,
+                        maintains and discloses information collected from users (each, a “User”) of the www.Behavioral
+                        Data Tracker.com website (“Site”). This privacy policy applies to the Site and all products and
+                        services offered by Behavioral Data Tracker LLC.
+
+                        Personal identification information
+
+                        We may collect personal identification information from Users in a variety of ways, including,
+                        but not limited to, when Users visit our site, register on the site, place an order, subscribe
+                        to the newsletter, respond to a survey, fill out a form, and in connection with other
+                        activities, services, features or resources we make available on our Site. Users may be asked
+                        for, as appropriate, name, email address, mailing address, phone number, credit card
+                        information, social security number. We will collect personal identification information from
+                        Users only if they voluntarily submit such information to us. Users can always refuse to supply
+                        personally identification information, except that it may prevent them from engaging in certain
+                        Site related activities.
+
+                        Non-personal identification information
+
+                        We may collect non-personal identification information about Users whenever they interact with
+                        our Site. Non-personal identification information may include the browser name, the type of
+                        computer and technical information about Users means of connection to our Site, such as the
+                        operating system and the Internet service providers utilized and other similar information.
+
+                        Web browser cookies
+
+                        Our Site may use “cookies” to enhance User experience. User’s web browser places cookies on
+                        their hard drive for record-keeping purposes and sometimes to track information about them. User
+                        may choose to set their web browser to refuse cookies, or to alert you when cookies are being
+                        sent. If they do so, note that some parts of the Site may not function properly.
+
+                        How we use collected information
+
+                        Behavioral Data Tracker LLC may collect and use Users personal information for the following
+                        purposes:
+
+                        – To improve customer service
+                        Information you provide helps us respond to your customer service requests and support needs
+                        more efficiently.
+                        – To personalize user experience
+                        We may use information in the aggregate to understand how our Users as a group use the services
+                        and resources provided on our Site.
+                        – To improve our Site
+                        We may use feedback you provide to improve our products and services.
+                        – To process payments
+                        We may use the information Users provide about themselves when placing an order only to provide
+                        service to that order. We do not share this information with outside parties except to the
+                        extent necessary to provide the service.
+                        – To share your information with third parties
+                        We may share or sell information with third parties for marketing or other purposes.
+                        – To run a promotion, contest, survey or other Site feature
+                        To send Users information they agreed to receive about topics we think will be of interest to
+                        them.
+                        – To send periodic emails
+                        We may use the email address to send User information and updates pertaining to their order. It
+                        may also be used to respond to their inquiries, questions, and/or other requests. If User
+                        decides to opt-in to our mailing list, they will receive emails that may include company news,
+                        updates, related product or service information, etc. If at any time the User would like to
+                        unsubscribe from receiving future emails, they may do so by contacting us via our Site.
+                        How we protect your information
+
+                        We adopt appropriate data collection, storage and processing practices and security measures to
+                        protect against unauthorized access, alteration, disclosure or destruction of your personal
+                        information, username, password, transaction information and data stored on our Site.
+
+                        Sharing your personal information
+
+                        We may use third party service providers to help us operate our business and the Site or
+                        administer activities on our behalf, such as sending out newsletters or surveys. We may share
+                        your information with these third parties for those limited purposes provided that you have
+                        given us your permission.
+
+                        Third party websites
+
+                        Users may find advertising or other content on our Site that link to the sites and services of
+                        our partners, suppliers, advertisers, sponsors, licensors and other third parties. We do not
+                        control the content or links that appear on these sites and are not responsible for the
+                        practices employed by websites linked to or from our Site. In addition, these sites or services,
+                        including their content and links, may be constantly changing. These sites and services may have
+                        their own privacy policies and customer service policies. Browsing and interaction on any other
+                        website, including websites which have a link to our Site, is subject to that website’s own
+                        terms and policies.
+
+                        Compliance with children’s online privacy protection act
+
+                        Protecting the privacy of the very young is especially important. For that reason, we never
+                        collect or maintain information at our Site from those we actually know are under 13, and no
+                        part of our website is structured to attract anyone under 13.
+
+                        Changes to this privacy policy
+
+                        Behavioral Data Tracker LLC has the discretion to update this privacy policy at any time. When
+                        we do, we will revise the updated date at the bottom of this page. We encourage Users to
+                        frequently check this page for any changes to stay informed about how we are helping to protect
+                        the personal information we collect. You acknowledge and agree that it is your responsibility to
+                        review this privacy policy periodically and become aware of modifications.
+
+                        Your acceptance of these terms
+
+                        By using this Site, you signify your acceptance of this policy. If you do not agree to this
+                        policy, please do not use our Site. Your continued use of the Site following the posting of
+                        changes to this policy will be deemed your acceptance of those changes.
+
+                        Contacting us
+
+                        If you have any questions about this Privacy Policy, the practices of this site, or your
+                        dealings with this site, please contact us at:
+                        Behavioral Data Tracker LLC
+                        www.Behavioral Data Tracker.com
+                        support@Behavioral Data Tracker.com
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col s6 m3">
+                    <img style="width: 50px; margin-top: 35px;" class="materialize-logo" src="img/materialize-logo.png"
+                        alt="Materialize">
+                    <p>Made with love by Materialize.</p>
+                </div>
+                <div class="col s6 m3">
+                    <h5>Learn</h5>
+                    <ul>
+                        <li><a href="https://github.com/kinneers/bdt_v2">Github</a></li>
+                        <li><a href="#!">Docs</a></li>
+                    </ul>
+                </div>
+                <div class="col s6 m3">
+                    <h5>About</h5>
+                    <ul>
+                        <li><a href="terms.html">Terms of Use</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col s6 m3">
+                    <h5>Contact</h5>
+                    <ul>
+                        <li><a href="mailto: support@behavioraldatakeeper.com">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.2/moment.min.js"></script>
+
+    <!-- External libraries -->
+
+    <!-- jqvmap -->
+    <script type="text/javascript" src="js/jqvmap/jquery.vmap.min.js"></script>
+    <script type="text/javascript" src="js/jqvmap/jquery.vmap.world.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/jqvmap/jquery.vmap.sampledata.js"></script>
+
+    <!-- ChartJS -->
+    <script type="text/javascript" src="js/Chart.js"></script>
+    <script type="text/javascript" src="js/Chart.Financial.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.7.0/fullcalendar.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/masonry.pkgd.min.js"></script>
+
+
+    <!-- Initialization script -->
+    <script src="js/admin.js"></script>
+    <script src="js/init.js"></script>
+</body>
+
+</html>
