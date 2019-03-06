@@ -1,5 +1,6 @@
 //Require dependency
 var path = require('path');
+var models = require('../models');
 
 //Passing passport in from server.js as a parameter
 module.exports = function(app, passport) {
@@ -25,10 +26,11 @@ module.exports = function(app, passport) {
 
     //Route to Dashboard- isLoggedIn protects the router
     app.get('/dashboard', isLoggedIn, function(req, res) {
-        res.sendFile(path.join(__dirname, "../public_test/dashboard.html"));
+        res.sendFile(path.join(__dirname, "../public/table-custom-elements.html"));
     });
-
-    //SARAH STILL NEEDS TO FIGURE OUT HOW TO END THE SESSION WITH LOGOUT!!!!
+    
+    //WORKING- DON'T TOUCH
+    //Ends session and returns user to log-in page
     app.get("/logout", function(req, res) {
         req.logout();
         res.sendFile(path.join(__dirname, "../public/log-in.html"));
@@ -39,6 +41,15 @@ module.exports = function(app, passport) {
         successRedirect: '/dashboard',
         failureRedirect: '/signin',
     }));
+
+    app.get("/teacher/students", isLoggedIn, function(req, res){
+        models.Students.findAll({
+            
+        }).then(function(dbData){
+            console.log(dbData);
+            res.JSON(dbData);
+        });
+    });
 
     //PLEASE KEEP THIS LAST IN ORDER
     //Custom middleware to protect dashboard route

@@ -7,6 +7,25 @@
       ["3","Tiger Nixon","raise hand before speaking"]
     ];
 
+    function getStudents() {
+        $.get("/teacher/students", function(dbData) {
+          console.log(dbData);
+          data.forEach((dbData, i) => {
+            return (
+              dbData.push(
+                `<form><label><input class="with-gap" value="1" name="group-${i}" type="radio"/>
+            <span>Met</span> </label>
+            <label><input class="with-gap" value="0" name="group-${i}" type="radio"/>
+            <span>Not Met</span></label>
+            <label> <input class="with-gap" value="null" name="group-${i}" type="radio"/>
+            <span>N/A</span></label></form>`
+              )
+            )
+          });  
+        })
+      }
+      getStudents();
+
     //This handles the buttons. The console log is logging the events on click and showing the correct value, so you should be able to use this and modify to capture each unique id with value.
     data.forEach((e, i) => {
       return (
