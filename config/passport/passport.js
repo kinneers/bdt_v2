@@ -11,7 +11,7 @@ module.exports = function(passport, user) {
             passwordField: 'password',
             passReqToCallback: true //allows us to pass back the entire request to the callback
         },
-        function(req, username, password, role, done) {
+        function(req, username, password, done) {
             var generateHash = function(password) {
                 return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
             };
@@ -33,7 +33,7 @@ module.exports = function(passport, user) {
                             password: userPassword,
                             firstname: req.body.firstname,
                             lastname: req.body.lastname,
-                            role: role
+                            role: req.body.role
                         };
                     User.create(data).then(function(newUser, created) {
                         if (!newUser) {
