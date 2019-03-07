@@ -1,16 +1,19 @@
 (function ($) {
   $(document).ready(function () {
     //This is all you need to update to pull in student data
-    var data =
-      [["1", "Tiger Nixon", "raise hand before speaking"],
-      ["2", "Tiger Nixon", "raise hand before speaking"],
-      ["3", "Tiger Nixon", "raise hand before speaking"]
-      ];
+    // var data =
+    //   [["1", "Tiger Nixon", "raise hand before speaking"],
+    //   ["2", "Tiger Nixon", "raise hand before speaking"],
+    //   ["3", "Tiger Nixon", "raise hand before speaking"]
+    //   ];
+
+    var data = [];
 
     function getStudents() {
         $.get("/teacher/students", function(dbData) {
-          console.log(dbData);
+          console.log("GETTING STUDENT DATA: ",dbData);
           data = dbData;
+          console.log("DATA: ", data);
           data.forEach((e, i) => {
             return (
               e.push(

@@ -29,6 +29,11 @@ module.exports = function(app, passport) {
         res.sendFile(path.join(__dirname, "../public/table-custom-elements.html"));
     });
     
+    //Gets username of current user from the server
+    app.get("/current-user", isLoggedIn, function(req, res) {
+        res.send({ username: req.user.username });
+    });
+
     //WORKING- DON'T TOUCH
     //Ends session and returns user to log-in page
     app.get("/logout", function(req, res) {
