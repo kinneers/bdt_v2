@@ -1,6 +1,5 @@
 //Require dependency
 var path = require('path');
-var models = require('../models');
 
 //Passing passport in from server.js as a parameter
 module.exports = function(app, passport) {
@@ -28,15 +27,28 @@ module.exports = function(app, passport) {
     app.get('/dashboard', isLoggedIn, function(req, res) {
         res.sendFile(path.join(__dirname, "../public/table-custom-elements.html"));
     });
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 046ece57fd4aca96d58af0c72c999f7a03e51822
     //Gets username of current user from the server
     app.get("/current-user", isLoggedIn, function(req, res) {
         res.send({ username: req.user.username });
     });
 
+<<<<<<< HEAD
     //WORKING- DON'T TOUCH
+=======
+>>>>>>> 046ece57fd4aca96d58af0c72c999f7a03e51822
     //Ends session and returns user to log-in page
     app.get("/logout", function(req, res) {
+        req.logout();
+        res.sendFile(path.join(__dirname, "../public/log-in.html"));
+    });
+
+    //Ends session and returns user to log-in page
+    app.post("/logout", function(req, res) {
         req.logout();
         res.sendFile(path.join(__dirname, "../public/log-in.html"));
     });
