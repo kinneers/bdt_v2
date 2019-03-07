@@ -1,5 +1,22 @@
 (function ($) {
   $(document).ready(function () {
+
+    var currentUser; //username of currently logged in user
+
+    //Gets the current user's username
+    function userNow() {
+        $.get('/current-user', function(current_user) {
+            currentUser = current_user.username;
+            console.log(currentUser + ' is the current user.');
+            return currentUser;
+        })    
+    }
+    userNow();
+    
+    $(document).on("click tap", "#logout", function() {
+        console.log('logout button is not working yet!');
+    });
+
     //This is all you need to update to pull in student data
     var data =
       [["1", "Tiger Nixon", "raise hand before speaking"],
