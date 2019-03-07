@@ -13,7 +13,9 @@
     }
     userNow();
     
-    $(document).on("click tap", "#logout", '/logout');
+    $(document).on("click tap", "#logout", function() {
+        console.log('logout button is not working yet!');
+    });
 
     //This is all you need to update to pull in student data
     var data =
