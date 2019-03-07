@@ -24,7 +24,7 @@ module.exports = function(app, passport) {
     }));
 
     //Route to Dashboard- isLoggedIn protects the router
-    app.get('/dashboard', isLoggedIn, function(req, res) {
+    app.get('/dashboard', function(req, res) {
         res.sendFile(path.join(__dirname, "../public/table-custom-elements.html"));
     });
     //Gets username of current user from the server
