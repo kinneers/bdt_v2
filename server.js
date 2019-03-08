@@ -1,5 +1,6 @@
 //Dependencies
 var passport = require('passport');
+var ConnectRoles = require('connect-roles');
 var express = require('express');
 var session = require('express-session');
 require('dotenv').load();

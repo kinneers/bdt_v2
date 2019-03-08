@@ -115,43 +115,6 @@
 
     }
     getStudents();
-
-
-    // function getStudents() {
-    //   $.get("/teacher/students", function(dbData) {
-    //       console.log(dbData);
-    //       for (var i = 0; i < dbData.length; i++) {
-    //           var studArray = [];
-    //           var order = (i + 1);
-    //           var name = dbData[i].studentname;
-    //           var bx = dbData[i].behavior;
-    //           studArray.push(order, name, bx);
-    //           data.push(studArray);
-    //       }
-    //       console.log("DATA: ",data);
-    //   })
-    //       data.forEach((e, i) => {
-    //       return (
-    //         e.push(
-    //           `<form><label><input class="with-gap" value="1" name="group-${i}" type="radio"/>
-    //       <span>Met</span> </label>
-    //       <label><input class="with-gap" value="0" name="group-${i}" type="radio"/>
-    //       <span>Not Met</span></label>
-    //       <label> <input class="with-gap" value="null" name="group-${i}" type="radio"/>
-    //       <span>N/A</span></label></form>`
-    //         )
-    //       )
-    //     });
-    //   }
-    // getStudents();
-
-    //This handles the buttons. The console log is logging the events on click and showing the correct value, so you should be able to use this and modify to capture each unique id with value.
-
-
-
-
-
-
   });
 }
   (jQuery));
