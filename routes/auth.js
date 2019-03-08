@@ -9,10 +9,12 @@ module.exports = function(app, passport) {
         res.sendFile(path.join(__dirname, "../public_test/signup.html"));
     });
 
+    //Route to login page
     app.get("/", function(req, res) {
         res.sendFile(path.join(__dirname, "../public/log-in.html"));
     });
 
+    //Route to login page
     app.get("/signin", function(req, res) {
         res.sendFile(path.join(__dirname, "../public/log-in.html"));
     });
@@ -33,13 +35,13 @@ module.exports = function(app, passport) {
         res.send({ username: req.user.username });
     });
 
-    //Ends session and returns user to log-in page
-    app.get("/logout", function(req, res) {
-        req.logout();
-        res.sendFile(path.join(__dirname, "../public/log-in.html"));
-    });
+    // //Ends session and returns user to log-in page (when /logout is )
+    // app.get("/logout", function(req, res) {
+    //     req.logout();
+    //     res.sendFile(path.join(__dirname, "../public/log-in.html"));
+    // });
 
-    //Ends session and returns user to log-in page
+    //Ends session and returns user to log-in page (on button click)
     app.post("/logout", function(req, res) {
         req.logout();
         res.sendFile(path.join(__dirname, "../public/log-in.html"));
