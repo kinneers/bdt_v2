@@ -13,22 +13,17 @@
     }
     userNow();
 
-    //This is all you need to update to pull in student data
-    // var data =
-    //   [["1", "Tiger Nixon", "raise hand before speaking"],
-    //   ["2", "Tiger Nixon", "raise hand before speaking"],
-    //   ["3", "Tiger Nixon", "raise hand before speaking"]
-    //   ];
-
     var data = [];
+    var dbDataContainer = [];
     var bxId = [];
 
     function getStudents() {
       $.get("/teacher/students", function (dbData) {
         console.log(dbData);
+        dbDataContainer = dbData;
         for (var i = 0; i < dbData.length; i++) {
           var studArray = [];
-          var order = (i+1);
+          var order = (i + 1);
           var name = dbData[i].studentname;
           var bx = dbData[i].behavior;
           var eachId = dbData[i].id;
@@ -42,9 +37,9 @@
         data.forEach((e, i) => {
           return (
             e.push(
-              `<form id="${dbData[i].id}"><label><input class="with-gap" id="met-${i}" name="group-${i}" type="radio"/>
+              `<form id="${dbData[i].id}"><label><input class="with-gap" id="met-${dbData[i].id}" name="group-${dbData[i].id}" type="radio"/>
       <span>Met</span> </label>
-      <label><input class="with-gap" id="notMet-${i}" name="group-${i}" type="radio"/>
+      <label><input class="with-gap" id="notMet-${dbData[i].id}" name="group-${dbData[i].id}" type="radio"/>
       <span>Not Met</span></label></form>`
             )
           )
@@ -96,61 +91,43 @@
             $(rows).toggleClass('selected', this.checked);
           });
         }
-        $(".container").on("click", "#saveData", function (event) {
-          console.log(data);
-          for (var i = 0; i < data.length; i++) {
-            var met = $(`#met-${i}:checked`).val();
-            //var met = $(`#met-${data[i].id}:checked`).val();
-            var notMet = $(`#notMet-${i}:checked`).val();
-            console.log(i);
-            console.log(met);
-            console.log(notMet);
-            if (met === "on") {
-                $.post('/ratings', function(req, res){
-                   //post to student[i] or student.id
-                    //${i} will change to data[i].id 
-                })              
-            }
-            //else return 0 instead
-          }
-          $(".with-gap").prop("checked", false);
-        });
       })
+      $(".container").on("click", "#saveData", function (event) {
+        console.log(data);
+        for (var i = 0; i < dbDataContainer.length; i++) {
+          var met = $(`#met-${dbDataContainer[i].id}:checked`).val();
+          //var met = $(`#met-${data[i].BehaviorId}:checked`).val();
+          var notMet = $(`#notMet-${dbDataContainer[i].id}:checked`).val();
+          console.log(dbDataContainer[i].id);
+          console.log(met);
+          console.log(notMet);
 
+          var body = {
+            BehaviorId: dbDataContainer[i].id,
+          };
+          if (met === undefined && notMet === undefined) {
+            return;
+          }
+          if (met === "on") {
+            //post to student[i] or student.id
+            //${i} will change to data[i].id 
+            body.behavInfo = true;
+          }
+          else {
+            body.behavInfo = false;
+          }
+          $.post('/ratings', body, function (req, res) {
+            console.log(body);
+            console.log(res);
+          });
+
+        }
+        $(".with-gap").prop("checked", false);
+      })
     }
     getStudents();
 
-
-    // function getStudents() {
-    //   $.get("/teacher/students", function(dbData) {
-    //       console.log(dbData);
-    //       for (var i = 0; i < dbData.length; i++) {
-    //           var studArray = [];
-    //           var order = (i + 1);
-    //           var name = dbData[i].studentname;
-    //           var bx = dbData[i].behavior;
-    //           studArray.push(order, name, bx);
-    //           data.push(studArray);
-    //       }
-    //       console.log("DATA: ",data);
-    //   })
-    //       data.forEach((e, i) => {
-    //       return (
-    //         e.push(
-    //           `<form><label><input class="with-gap" value="1" name="group-${i}" type="radio"/>
-    //       <span>Met</span> </label>
-    //       <label><input class="with-gap" value="0" name="group-${i}" type="radio"/>
-    //       <span>Not Met</span></label>
-    //       <label> <input class="with-gap" value="null" name="group-${i}" type="radio"/>
-    //       <span>N/A</span></label></form>`
-    //         )
-    //       )
-    //     });
-    //   }
-    // getStudents();
-
     //This handles the buttons. The console log is logging the events on click and showing the correct value, so you should be able to use this and modify to capture each unique id with value.
 
-  });
-}
-  (jQuery));
+  })
+})(jQuery);
