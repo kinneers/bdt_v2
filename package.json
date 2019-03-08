@@ -32,5 +32,8 @@
     "url": "https://github.com/kinneers/bdt_v2/issues"
   },
   "homepage": "https://github.com/kinneers/bdt_v2#readme",
-  "keywords": []
+  "keywords": [],
+  "directories": {
+    "test": "test"
+  }
 }
