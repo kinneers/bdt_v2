@@ -26,7 +26,7 @@
             var studArray = [];
             var order = (i + 1);
             var name = dbData[i].studentname;
-            var bx = `<a href='chartdata/${dbData[i].id}'>${dbData[i].behavior}</a>`;
+            var bx = `<a href='/chartdata/${dbData[i].id}'>${dbData[i].behavior}</a>`;
             var eachId = dbData[i].id;
             bxId.push(eachId);
             studArray.push(order, name, bx);
