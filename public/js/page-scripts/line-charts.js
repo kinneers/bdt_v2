@@ -5,9 +5,9 @@
     var cardLegendLineChart = new Chart(cardLegendLine, {
       type: 'line',
       data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
         datasets: [{
-          label: '# of Votes',
+          label: 'Behavior 1',
           data: [12, 19, 3, 5, 2, 3],
           borderColor: 'rgb(244,67,54)',
           pointBackgroundColor: 'rgb(244,67,54)',
@@ -16,8 +16,8 @@
           pointStyle: 'circle',
           fill: false
         },{
-          label: '# of Votes',
-          data: [5, 12, 18, 9, 11, 14],
+          label: 'Behavior 2',
+          data: [14, 4, 8, 5, 7, 11],
           borderColor: 'rgb(33,150,243)',
           pointBackgroundColor: 'rgb(33,150,243)',
           pointBorderColor: 'rgba(33,150,243,.1)',
