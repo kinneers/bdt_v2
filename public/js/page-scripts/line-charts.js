@@ -1,6 +1,6 @@
 (function ($) {
   $(document).ready(function(){
-
+    
     var cardLegendLine = $("#card-legend-line-chart");
     var cardLegendLineChart = new Chart(cardLegendLine, {
       type: 'line',
