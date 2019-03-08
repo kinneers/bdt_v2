@@ -21,7 +21,7 @@ app.use(session({
     saveUninitialized: true,
     cookie: {
         //secure: true,
-        maxAge:  20000, //3600000, //2 hours in milliseconds
+        maxAge: 7200000, //2 hours in milliseconds
         rolling: true //resets session maxAge at each req
     }
 })); //session secret

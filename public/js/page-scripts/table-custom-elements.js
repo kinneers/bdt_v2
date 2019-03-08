@@ -8,8 +8,9 @@
       $.get('/current-user', function (current_user) {
         currentUser = current_user.username;
         console.log(currentUser + ' is the current user.');
+        $('#username-container').text(currentUser);
         return currentUser;
-      })
+      });
     }
     userNow();
 
@@ -22,14 +23,14 @@
         console.log(dbData);
         dbDataContainer = dbData;
         for (var i = 0; i < dbData.length; i++) {
-          var studArray = [];
-          var order = (i + 1);
-          var name = dbData[i].studentname;
-          var bx = dbData[i].behavior;
-          var eachId = dbData[i].id;
-          bxId.push(eachId);
-          studArray.push(order, name, bx);
-          data.push(studArray);
+            var studArray = [];
+            var order = (i + 1);
+            var name = dbData[i].studentname;
+            var bx = `<a href='chartdata/${dbData[i].id}'>${dbData[i].behavior}</a>`;
+            var eachId = dbData[i].id;
+            bxId.push(eachId);
+            studArray.push(order, name, bx);
+            data.push(studArray);
         }
         console.log("DATA: ", data);
 
