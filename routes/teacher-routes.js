@@ -18,7 +18,8 @@ module.exports = function (app, passport) {
                 console.log('no error')
                 res.status(200).send("Data Submitted");
             }
-        })
+        });
+        
         //models.sequelize.update();
     });
 
