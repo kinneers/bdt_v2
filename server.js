@@ -16,7 +16,7 @@ app.use(express.json());
 
 //Initialize passport and the express session and passport session, adding both as middleware
 app.use(session({
-    secret: process.env.SESSION_SECRET,
+    secret: 'viking mania',
     resave: true,
     saveUninitialized: true,
     cookie: {

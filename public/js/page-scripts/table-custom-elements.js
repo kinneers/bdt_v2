@@ -35,15 +35,18 @@
             var sidebar = `<li class="bold waves-effect"><a class="collapsible-header">${name}<i class="material-icons chevron">chevron_left</i></a>
               <div class="collapsible-body">
                 <ul>
-                  <li><a href="#" class="waves-effect">${bx}<i class="material-icons">web</i></a></li>
+                  <li><i class="material-icons">web</i><button id="getChart" value="${bx}" class="waves-effect">${bx}</button></li>
                 </ul>
               </div>
             </li>`;
             $(".collapsible-accordion").append(sidebar);
         }
-      
-        // console.log("DATA: ", data);
-
+        
+        $('#sidenav-left').on('click tap', '#getChart', function(event) {
+            var bx = event.target.value;
+            makeChart(bx);
+        });
+    
         // e = element,  i = index
         data.forEach((e, i) => {
           return (
@@ -132,6 +135,8 @@
             $.post('/ratings', body, function (req, res) {
               console.log(body);
               console.log(res);
+
+              //makeChart(chartData);
             });
           }
         }
@@ -140,51 +145,45 @@
     }
     getStudents();
 
-    function makeChart() {
-        //Create chart for behavior
-        //Note that the value for getElementById must come from the dynamically added HTML 
-        var ctx = document.getElementById("ourAmazingChart").getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['day1', 'day2', 'day3', 'day4', 'day5', 'day6'],
-                datasets: [{
-                    label: 'We will put something good here',
-                    data: [50, 65, 70, 90, 82, 100],
-                    backgroundColor: [
-                        'rgba(80, 58, 88, 0.2)',
-                    ],
-                    borderColor: [
-                        'rgba(80, 58, 88, 1)',
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero:true,
-                            max: 100
-                        }
+    function makeChart(bx) {
+        //$.get("/chartdata", function (chartData) {
+            var dateArray = ['2019/03/04', '2019/03/05', '2019/03/06', '2019/03/07', '2019/03/08'];
+            var dataArray = ['35', '50', '40', '65', '70'];
+            //GET THE DATA
+            var bxDefinition = bx;
+            $('#title').text(bxDefinition);
+            //Create chart for behavior
+            //Note that the value for getElementById must come from the dynamically added HTML 
+            var ctx = document.getElementById("ourAmazingChart").getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: dateArray,
+                    datasets: [{
+                        label: 'Progress',
+                        data: dataArray,
+                        backgroundColor: [
+                            'rgba(80, 58, 88, 0.2)',
+                        ],
+                        borderColor: [
+                            'rgba(80, 58, 88, 1)',
+                        ],
+                        borderWidth: 1
                     }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero:true,
+                                max: 100
+                            }
+                        }]
+                    }
                 }
-            }
-        });
+            });
+        //});
     }
-    makeChart();
-
 
   });
 })(jQuery);
-
-
-/*<li class="bold waves-effect"><a class="collapsible-header">Student 1<i class="material-icons chevron">chevron_left</i></a>
-              <div class="collapsible-body">
-                <ul>
-                  <li><a href="dashboard.html" class="waves-effect">Bx1<i class="material-icons">web</i></a></li>
-                  <li><a href="pages-fixed-chart.html" class="waves-effect">Bx2<i class="material-icons">list</i></a></li>
-                  <li><a href="pages-grid.html" class="waves-effect">Bx3<i class="material-icons">dashboard</i></a></li>
-                </ul>
-              </div>
-            </li>*/

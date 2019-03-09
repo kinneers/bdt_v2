@@ -23,17 +23,30 @@ module.exports = function (app, passport) {
         //models.sequelize.update();
     });
 
-    //Route to chart page on click of behavior
-    app.get('/chartdata/:behavid', isLoggedIn, function(req, res) {
-        models.Behavdata.findAll({
-            where: {
-              BehaviorId: req.params.behavid
-            }
-        }).then(function(result) {
-            res.sendFile(path.join(__dirname, "../public/line-charts.html"));
-            res.json(result);
-        });
-    });
+    // //Send dates for bx chart
+    // app.post('/sendID', isLoggedIn, function(req, res) {
+    //     app.set('id', req.body.behavid);
+    // });
+    // app.get('/dates', isLoggedIn, function(req, res) {
+    //     //console.log('BehavID: ', parseInt(req)); //This is the behavior id
+    //     var bxID = {retrievedData: app.get('data')};
+    //     models.sequelize.query(
+    //         `SELECT DISTINCT DATE(createdAt) AS date FROM behavior_db.behavdata WHERE BehaviorId = '${bxID}' ORDER BY date;`
+    //     ).spread((dates, metadata) => {
+    //         res.json(dates);
+    //     })
+    // });
+
+    // //Send averages for bx chart
+    // app.get('/chartdata', isLoggedIn, function(req, res) {
+    //     console.log(req.body); //This is the behavior id
+    //     var bxID = req.body;
+    //     // models.sequelize.query(
+
+    //     // ).spread((chartData, metadata) => {
+    //     //     res.json(chartData);
+    //     // })
+    // });
 
     //PLEASE KEEP THIS LAST IN ORDER
     //Custom middleware to protect dashboard route
