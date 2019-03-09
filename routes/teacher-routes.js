@@ -23,15 +23,30 @@ module.exports = function (app, passport) {
         //models.sequelize.update();
     });
 
-    //Send data for bx chart
-    app.post('/chartdata', isLoggedIn, function(req, res) {
-        console.log(req.body);
-        // models.Behavdata.findAll(req.body, function(req, res, err) {
-        //     where: {
-        //       BehaviorId: req.body.behavid
-        //     }
-        // });
-    });
+    // //Send dates for bx chart
+    // app.post('/sendID', isLoggedIn, function(req, res) {
+    //     app.set('id', req.body.behavid);
+    // });
+    // app.get('/dates', isLoggedIn, function(req, res) {
+    //     //console.log('BehavID: ', parseInt(req)); //This is the behavior id
+    //     var bxID = {retrievedData: app.get('data')};
+    //     models.sequelize.query(
+    //         `SELECT DISTINCT DATE(createdAt) AS date FROM behavior_db.behavdata WHERE BehaviorId = '${bxID}' ORDER BY date;`
+    //     ).spread((dates, metadata) => {
+    //         res.json(dates);
+    //     })
+    // });
+
+    // //Send averages for bx chart
+    // app.get('/chartdata', isLoggedIn, function(req, res) {
+    //     console.log(req.body); //This is the behavior id
+    //     var bxID = req.body;
+    //     // models.sequelize.query(
+
+    //     // ).spread((chartData, metadata) => {
+    //     //     res.json(chartData);
+    //     // })
+    // });
 
     //PLEASE KEEP THIS LAST IN ORDER
     //Custom middleware to protect dashboard route

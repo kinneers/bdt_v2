@@ -35,18 +35,18 @@
             var sidebar = `<li class="bold waves-effect"><a class="collapsible-header">${name}<i class="material-icons chevron">chevron_left</i></a>
               <div class="collapsible-body">
                 <ul>
-                  <li><button id="${eachId}" class="waves-effect">${bx}<i class="material-icons">web</i></button></li>
+                  <li><i class="material-icons">web</i><button id="getChart" value="${bx}" class="waves-effect">${bx}</button></li>
                 </ul>
               </div>
             </li>`;
             $(".collapsible-accordion").append(sidebar);
         }
         
-        $('<button>').on('click tap', function() {
-            console.log('button clicked');
-        })
-        // $.post(/)
-
+        $('#sidenav-left').on('click tap', '#getChart', function(event) {
+            var bx = event.target.value;
+            makeChart(bx);
+        });
+    
         // e = element,  i = index
         data.forEach((e, i) => {
           return (
@@ -121,14 +121,9 @@
           };
           if (met === undefined && notMet === undefined) {
             // eslint-disable-next-line no-console
-<<<<<<< HEAD
-            console.log('One or more behaviors was not rated');
-          }
-=======
             console.log("Met or Not Met condition tracked");
             body.behavInfo = null;
           } else {
->>>>>>> 2883412704e588a3018f6794f8ff290ce3e9df57
           if (met === "on") {
             //post to student[i] or student.id
             //${i} will change to data[i].id 
@@ -136,14 +131,13 @@
           }
           else {
             body.behavInfo = 0;
-<<<<<<< HEAD
-=======
           }
             $.post('/ratings', body, function (req, res) {
               console.log(body);
               console.log(res);
+
+              //makeChart(chartData);
             });
->>>>>>> 2883412704e588a3018f6794f8ff290ce3e9df57
           }
         }
         $(".with-gap").prop("checked", false);
@@ -151,24 +145,23 @@
     }
     getStudents();
 
-
-    function makeChart() {
+    function makeChart(bx) {
         //$.get("/chartdata", function (chartData) {
-
+            var dateArray = ['2019/03/04', '2019/03/05', '2019/03/06', '2019/03/07', '2019/03/08'];
+            var dataArray = ['35', '50', '40', '65', '70'];
             //GET THE DATA
-            var sName = "Jodi 'Sprit Fingers' McGee";
-            var bxDefinition = "Learn to be a pirate";
-            $('#title').text(sName + ': ' + bxDefinition);
+            var bxDefinition = bx;
+            $('#title').text(bxDefinition);
             //Create chart for behavior
             //Note that the value for getElementById must come from the dynamically added HTML 
             var ctx = document.getElementById("ourAmazingChart").getContext('2d');
             var myChart = new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: ['day1', 'day2', 'day3', 'day4', 'day5', 'day6'],
+                    labels: dateArray,
                     datasets: [{
-                        label: 'We will put something good here',
-                        data: [50, 65, 70, 90, 82, 100],
+                        label: 'Progress',
+                        data: dataArray,
                         backgroundColor: [
                             'rgba(80, 58, 88, 0.2)',
                         ],
