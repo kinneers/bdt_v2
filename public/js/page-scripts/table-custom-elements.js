@@ -26,7 +26,7 @@
             var studArray = [];
             var order = (i + 1);
             var name = dbData[i].studentname;
-            var bx = `<a href='/chartdata/${dbData[i].id}'>${dbData[i].behavior}</a>`;
+            var bx = dbData[i].behavior;
             var eachId = dbData[i].id;
             bxId.push(eachId);
             studArray.push(order, name, bx);
@@ -107,7 +107,8 @@
             BehaviorId: dbDataContainer[i].id,
           };
           if (met === undefined && notMet === undefined) {
-            return;
+            // eslint-disable-next-line no-console
+            console.log('One or more behaviors was not rated');
           }
           if (met === "on") {
             //post to student[i] or student.id
@@ -128,44 +129,46 @@
     }
     getStudents();
 
-    function makeChart() {
-        //GET THE DATA
-        var sName = "Jodi 'Sprit Fingers' McGee";
-        var bxDefinition = "Learn to be a pirate";
-        $('#title').text(sName + ': ' + bxDefinition);
-        //Create chart for behavior
-        //Note that the value for getElementById must come from the dynamically added HTML 
-        var ctx = document.getElementById("ourAmazingChart").getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['day1', 'day2', 'day3', 'day4', 'day5', 'day6'],
-                datasets: [{
-                    label: 'We will put something good here',
-                    data: [50, 65, 70, 90, 82, 100],
-                    backgroundColor: [
-                        'rgba(80, 58, 88, 0.2)',
-                    ],
-                    borderColor: [
-                        'rgba(80, 58, 88, 1)',
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero:true,
-                            max: 100
-                        }
-                    }]
-                }
-            }
-        });
-    }
-    makeChart();
 
+    function makeChart() {
+        //$.get("/chartdata", function (chartData) {
+
+            //GET THE DATA
+            var sName = "Jodi 'Sprit Fingers' McGee";
+            var bxDefinition = "Learn to be a pirate";
+            $('#title').text(sName + ': ' + bxDefinition);
+            //Create chart for behavior
+            //Note that the value for getElementById must come from the dynamically added HTML 
+            var ctx = document.getElementById("ourAmazingChart").getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['day1', 'day2', 'day3', 'day4', 'day5', 'day6'],
+                    datasets: [{
+                        label: 'We will put something good here',
+                        data: [50, 65, 70, 90, 82, 100],
+                        backgroundColor: [
+                            'rgba(80, 58, 88, 0.2)',
+                        ],
+                        borderColor: [
+                            'rgba(80, 58, 88, 1)',
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero:true,
+                                max: 100
+                            }
+                        }]
+                    }
+                }
+            });
+        //});
+    }
 
   });
 })(jQuery);

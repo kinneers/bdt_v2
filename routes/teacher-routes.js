@@ -24,15 +24,15 @@ module.exports = function (app, passport) {
     });
 
     //Gets the chart data for the given behavior id
-    app.get('/chartdata/:behavid', isLoggedIn, function(req, res) {
-        models.Behavdata.findAll({
-            where: {
-              BehaviorId: req.params.behavid
-            }
-        }).then(function(chartData) {
-            res.json(chartData);
-        });
-    });
+    // app.get('/chartdata', isLoggedIn, function(req, res) {
+    //     models.Behavdata.findAll({
+    //         where: {
+    //           BehaviorId: req.params.behavid
+    //         }
+    //     }).then(function(chartData) {
+    //         res.json(chartData);
+    //     });
+    // });
 
     //PLEASE KEEP THIS LAST IN ORDER
     //Custom middleware to protect dashboard route
