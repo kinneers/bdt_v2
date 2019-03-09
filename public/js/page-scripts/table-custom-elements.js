@@ -138,12 +138,12 @@
                 labels: ['day1', 'day2', 'day3', 'day4', 'day5', 'day6'],
                 datasets: [{
                     label: 'We will put something good here',
-                    data: [50, 60, 70, 90, 80, 100],
+                    data: [50, 65, 70, 90, 82, 100],
                     backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(80, 58, 88, 0.2)',
                     ],
                     borderColor: [
-                        'rgba(255, 99, 132, 1)',
+                        'rgba(80, 58, 88, 1)',
                     ],
                     borderWidth: 1
                 }]
