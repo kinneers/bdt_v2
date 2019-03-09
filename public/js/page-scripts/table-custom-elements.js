@@ -129,6 +129,10 @@
     getStudents();
 
     function makeChart() {
+        //GET THE DATA
+        var sName = "Jodi 'Sprit Fingers' McGee";
+        var bxDefinition = "Learn to be a pirate";
+        $('#title').text(sName + ': ' + bxDefinition);
         //Create chart for behavior
         //Note that the value for getElementById must come from the dynamically added HTML 
         var ctx = document.getElementById("ourAmazingChart").getContext('2d');

@@ -23,15 +23,14 @@ module.exports = function (app, passport) {
         //models.sequelize.update();
     });
 
-    //Route to chart page on click of behavior
+    //Gets the chart data for the given behavior id
     app.get('/chartdata/:behavid', isLoggedIn, function(req, res) {
         models.Behavdata.findAll({
             where: {
               BehaviorId: req.params.behavid
             }
-        }).then(function(result) {
-            res.sendFile(path.join(__dirname, "../public/line-charts.html"));
-            res.json(result);
+        }).then(function(chartData) {
+            res.json(chartData);
         });
     });
 
