@@ -23,7 +23,6 @@ module.exports = function (app, passport) {
         //models.sequelize.update();
     });
 
-<<<<<<< HEAD
     //Route to chart page on click of behavior
     app.get('/chartdata/:behavid', isLoggedIn, function(req, res) {
         models.Behavdata.findAll({
@@ -35,10 +34,6 @@ module.exports = function (app, passport) {
             res.json(result);
         });
     });
-=======
-    
-
->>>>>>> 440cf7530d6a2da9ea0cea9df5429ce552788c1a
 
     //PLEASE KEEP THIS LAST IN ORDER
     //Custom middleware to protect dashboard route

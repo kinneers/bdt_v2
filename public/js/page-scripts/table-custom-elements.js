@@ -128,7 +128,40 @@
     }
     getStudents();
 
-    
+    function makeChart() {
+        //Create chart for behavior
+        //Note that the value for getElementById must come from the dynamically added HTML 
+        var ctx = document.getElementById("ourAmazingChart").getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['day1', 'day2', 'day3', 'day4', 'day5', 'day6'],
+                datasets: [{
+                    label: 'We will put something good here',
+                    data: [50, 60, 70, 90, 80, 100],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true,
+                            max: 100
+                        }
+                    }]
+                }
+            }
+        });
+    }
+    makeChart();
+
 
   });
 })(jQuery);
