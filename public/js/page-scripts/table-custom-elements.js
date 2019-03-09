@@ -121,8 +121,14 @@
           };
           if (met === undefined && notMet === undefined) {
             // eslint-disable-next-line no-console
+<<<<<<< HEAD
             console.log('One or more behaviors was not rated');
           }
+=======
+            console.log("Met or Not Met condition tracked");
+            body.behavInfo = null;
+          } else {
+>>>>>>> 2883412704e588a3018f6794f8ff290ce3e9df57
           if (met === "on") {
             //post to student[i] or student.id
             //${i} will change to data[i].id 
@@ -130,12 +136,15 @@
           }
           else {
             body.behavInfo = 0;
+<<<<<<< HEAD
+=======
           }
-          $.post('/ratings', body, function (req, res) {
-            // console.log(body);
-            // console.log(res);
-          });
-
+            $.post('/ratings', body, function (req, res) {
+              console.log(body);
+              console.log(res);
+            });
+>>>>>>> 2883412704e588a3018f6794f8ff290ce3e9df57
+          }
         }
         $(".with-gap").prop("checked", false);
       })
