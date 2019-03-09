@@ -35,14 +35,17 @@
             var sidebar = `<li class="bold waves-effect"><a class="collapsible-header">${name}<i class="material-icons chevron">chevron_left</i></a>
               <div class="collapsible-body">
                 <ul>
-                  <li><a href="#" class="waves-effect">${bx}<i class="material-icons">web</i></a></li>
+                  <li><button id="${eachId}" class="waves-effect">${bx}<i class="material-icons">web</i></button></li>
                 </ul>
               </div>
             </li>`;
             $(".collapsible-accordion").append(sidebar);
         }
-      
-        // console.log("DATA: ", data);
+        
+        $('<button>').on('click tap', function() {
+            console.log('button clicked');
+        })
+        // $.post(/)
 
         // e = element,  i = index
         data.forEach((e, i) => {
@@ -123,10 +126,10 @@
           if (met === "on") {
             //post to student[i] or student.id
             //${i} will change to data[i].id 
-            body.behavInfo = true;
+            body.behavInfo = 1;
           }
           else {
-            body.behavInfo = false;
+            body.behavInfo = 0;
           }
           $.post('/ratings', body, function (req, res) {
             // console.log(body);
@@ -182,14 +185,3 @@
 
   });
 })(jQuery);
-
-
-/*<li class="bold waves-effect"><a class="collapsible-header">Student 1<i class="material-icons chevron">chevron_left</i></a>
-              <div class="collapsible-body">
-                <ul>
-                  <li><a href="dashboard.html" class="waves-effect">Bx1<i class="material-icons">web</i></a></li>
-                  <li><a href="pages-fixed-chart.html" class="waves-effect">Bx2<i class="material-icons">list</i></a></li>
-                  <li><a href="pages-grid.html" class="waves-effect">Bx3<i class="material-icons">dashboard</i></a></li>
-                </ul>
-              </div>
-            </li>*/

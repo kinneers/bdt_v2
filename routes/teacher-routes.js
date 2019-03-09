@@ -23,16 +23,15 @@ module.exports = function (app, passport) {
         //models.sequelize.update();
     });
 
-    //Gets the chart data for the given behavior id
-    // app.get('/chartdata', isLoggedIn, function(req, res) {
-    //     models.Behavdata.findAll({
-    //         where: {
-    //           BehaviorId: req.params.behavid
-    //         }
-    //     }).then(function(chartData) {
-    //         res.json(chartData);
-    //     });
-    // });
+    //Send data for bx chart
+    app.post('/chartdata', isLoggedIn, function(req, res) {
+        console.log(req.body);
+        // models.Behavdata.findAll(req.body, function(req, res, err) {
+        //     where: {
+        //       BehaviorId: req.body.behavid
+        //     }
+        // });
+    });
 
     //PLEASE KEEP THIS LAST IN ORDER
     //Custom middleware to protect dashboard route
