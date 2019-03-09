@@ -20,19 +20,29 @@
 
     function getStudents() {
       $.get("/teacher/students", function (dbData) {
-        console.log(dbData);
+        // console.log(dbData);
         dbDataContainer = dbData;
         for (var i = 0; i < dbData.length; i++) {
             var studArray = [];
             var order = (i + 1);
             var name = dbData[i].studentname;
-            var bx = `<a href='/chartdata/${dbData[i].id}'>${dbData[i].behavior}</a>`;
+            var bx = dbData[i].behavior;
             var eachId = dbData[i].id;
             bxId.push(eachId);
             studArray.push(order, name, bx);
             data.push(studArray);
+
+            var sidebar = `<li class="bold waves-effect"><a class="collapsible-header">${name}<i class="material-icons chevron">chevron_left</i></a>
+              <div class="collapsible-body">
+                <ul>
+                  <li><a href="#" class="waves-effect">${bx}<i class="material-icons">web</i></a></li>
+                </ul>
+              </div>
+            </li>`;
+            $(".collapsible-accordion").append(sidebar);
         }
-        console.log("DATA: ", data);
+      
+        // console.log("DATA: ", data);
 
         // e = element,  i = index
         data.forEach((e, i) => {
@@ -94,14 +104,14 @@
         }
       })
       $(".container").on("click", "#saveData", function (event) {
-        console.log(data);
+        //console.log(data);
         for (var i = 0; i < dbDataContainer.length; i++) {
           var met = $(`#met-${dbDataContainer[i].id}:checked`).val();
           //var met = $(`#met-${data[i].BehaviorId}:checked`).val();
           var notMet = $(`#notMet-${dbDataContainer[i].id}:checked`).val();
-          console.log(dbDataContainer[i].id);
-          console.log(met);
-          console.log(notMet);
+        //   console.log(dbDataContainer[i].id);
+        //   console.log(met);
+        //   console.log(notMet);
 
           var body = {
             BehaviorId: dbDataContainer[i].id,
@@ -130,7 +140,51 @@
     }
     getStudents();
 
-    //This handles the buttons. The console log is logging the events on click and showing the correct value, so you should be able to use this and modify to capture each unique id with value.
+    function makeChart() {
+        //Create chart for behavior
+        //Note that the value for getElementById must come from the dynamically added HTML 
+        var ctx = document.getElementById("ourAmazingChart").getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['day1', 'day2', 'day3', 'day4', 'day5', 'day6'],
+                datasets: [{
+                    label: 'We will put something good here',
+                    data: [50, 65, 70, 90, 82, 100],
+                    backgroundColor: [
+                        'rgba(80, 58, 88, 0.2)',
+                    ],
+                    borderColor: [
+                        'rgba(80, 58, 88, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true,
+                            max: 100
+                        }
+                    }]
+                }
+            }
+        });
+    }
+    makeChart();
 
-  })
+
+  });
 })(jQuery);
+
+
+/*<li class="bold waves-effect"><a class="collapsible-header">Student 1<i class="material-icons chevron">chevron_left</i></a>
+              <div class="collapsible-body">
+                <ul>
+                  <li><a href="dashboard.html" class="waves-effect">Bx1<i class="material-icons">web</i></a></li>
+                  <li><a href="pages-fixed-chart.html" class="waves-effect">Bx2<i class="material-icons">list</i></a></li>
+                  <li><a href="pages-grid.html" class="waves-effect">Bx3<i class="material-icons">dashboard</i></a></li>
+                </ul>
+              </div>
+            </li>*/
