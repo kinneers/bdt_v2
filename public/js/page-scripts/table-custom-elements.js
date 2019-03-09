@@ -20,7 +20,7 @@
 
     function getStudents() {
       $.get("/teacher/students", function (dbData) {
-        console.log(dbData);
+        // console.log(dbData);
         dbDataContainer = dbData;
         for (var i = 0; i < dbData.length; i++) {
             var studArray = [];
@@ -32,7 +32,7 @@
             studArray.push(order, name, bx);
             data.push(studArray);
         }
-        console.log("DATA: ", data);
+        // console.log("DATA: ", data);
 
         // e = element,  i = index
         data.forEach((e, i) => {
@@ -94,14 +94,14 @@
         }
       })
       $(".container").on("click", "#saveData", function (event) {
-        console.log(data);
+        //console.log(data);
         for (var i = 0; i < dbDataContainer.length; i++) {
           var met = $(`#met-${dbDataContainer[i].id}:checked`).val();
           //var met = $(`#met-${data[i].BehaviorId}:checked`).val();
           var notMet = $(`#notMet-${dbDataContainer[i].id}:checked`).val();
-          console.log(dbDataContainer[i].id);
-          console.log(met);
-          console.log(notMet);
+        //   console.log(dbDataContainer[i].id);
+        //   console.log(met);
+        //   console.log(notMet);
 
           var body = {
             BehaviorId: dbDataContainer[i].id,
@@ -118,8 +118,8 @@
             body.behavInfo = false;
           }
           $.post('/ratings', body, function (req, res) {
-            console.log(body);
-            console.log(res);
+            // console.log(body);
+            // console.log(res);
           });
 
         }
@@ -128,7 +128,7 @@
     }
     getStudents();
 
-    //This handles the buttons. The console log is logging the events on click and showing the correct value, so you should be able to use this and modify to capture each unique id with value.
+    
 
-  })
+  });
 })(jQuery);

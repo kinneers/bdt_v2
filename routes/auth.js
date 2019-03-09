@@ -35,11 +35,11 @@ module.exports = function(app, passport) {
         res.send({ username: req.user.username });
     });
 
-    // //Ends session and returns user to log-in page (when /logout is )
-    // app.get("/logout", function(req, res) {
-    //     req.logout();
-    //     res.sendFile(path.join(__dirname, "../public/log-in.html"));
-    // });
+    //Ends session and returns user to log-in page (when /logout is )
+    app.get("/logout", function(req, res) {
+        req.logout();
+        res.sendFile(path.join(__dirname, "../public/log-in.html"));
+    });
 
     //Ends session and returns user to log-in page (on button click)
     app.post("/logout", function(req, res) {
@@ -56,8 +56,10 @@ module.exports = function(app, passport) {
     //PLEASE KEEP THIS LAST IN ORDER
     //Custom middleware to protect dashboard route
     function isLoggedIn(req, res, next) {
-        if(req.isAuthenticated())
+        if(req.isAuthenticated()) {
             return next();
-        res.redirect('/signin');
+        } else {
+            res.redirect('/signin');
+        }
     }
 }
