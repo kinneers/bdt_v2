@@ -1,94 +1,4 @@
-INSERT INTO `behavior_db`.`teachers`
-(`userName`,
-`userPassword`,
-`firstName`,
-`lastName`,
-`authLevel`,
-`email`,
-`active`,
-`createdAt`,
-`updatedAt`,
-`last_login`,
-`status`)
-VALUES
-('sarahk',
-'$2a$08$3B0QraGhlhPaqaZEuOzqSeDyvvEZ1TI4G3u3H6RE7P6fq4I60aUYy',
-'Sarah',
-'Kinneer',
-'staff',
-'sarahK@gmail.com',
-'1',
-CURDATE(),
-CURDATE(),
-CURDATE(),
-'active');
-
-
-INSERT INTO `behavior_db`.`students`
-(`userName`,
-`userPassword`,
-`firstName`,
-`lastName`,
-`active`,
-`createdAt`,
-`updatedAt`,
-`last_login`,
-`status`)
-VALUES
-('billy',
-'$2a$08$c263U0s.Qz23pDlAFOOOzuA4jZfbVGdWLMRwVubaV/ZpG9KaVV7qy',
-'Billy',
-'Sterling',
-'1',
-CURDATE(),
-CURDATE(),
-CURDATE(),
-'active');
-
-
-INSERT INTO `behavior_db`.`students`
-(`userName`,
-`userPassword`,
-`firstName`,
-`lastName`,
-`active`,
-`createdAt`,
-`updatedAt`,
-`last_login`,
-`status`)
-VALUES
-('jodi',
-'$2a$08$3OmTNlyEKBo2ASR.jgO6FuhRCsCxlpOpbqsboKxIE33DqIKBzvDWO',
-'Jodi',
-'Woodward',
-'1',
-CURDATE(),
-CURDATE(),
-CURDATE(),
-'active');
-
-
-INSERT INTO `behavior_db`.`students`
-(`userName`,
-`userPassword`,
-`firstName`,
-`lastName`,
-`active`,
-`createdAt`,
-`updatedAt`,
-`last_login`,
-`status`)
-VALUES
-('billyboy',
-'$2a$08$.2iYfvxlwEk2JqTR20lo8ufXOxVdBFHEadGoKvwku6PDNHbXSLxmC',
-'Billy',
-'Sterling',
-'1',
-CURDATE(),
-CURDATE(),
-CURDATE(),
-'active');
-
+-- TEACHER-STUDENT -------------------------------
 
 INSERT INTO `behavior_db`.`teacherstudents`
 (`createdAt`,
@@ -99,20 +9,7 @@ VALUES
 (CURDATE(),
 CURDATE(),
 'sarahk',
-'billy');
-
-
-INSERT INTO `behavior_db`.`teacherstudents`
-(`createdAt`,
-`updatedAt`,
-`TeacherUserName`,
-`StudentUserName`)
-VALUES
-(CURDATE(),
-CURDATE(),
-'sarahk',
-'jodi');
-
+'timmyt');
 
 INSERT INTO `behavior_db`.`teacherstudents`
 (`createdAt`,
@@ -123,9 +20,22 @@ VALUES
 (CURDATE(),
 CURDATE(),
 'sarahk',
-'billyboy');
+'marym');
 
+INSERT INTO `behavior_db`.`teacherstudents`
+(`createdAt`,
+`updatedAt`,
+`TeacherUserName`,
+`StudentUserName`)
+VALUES
+(CURDATE(),
+CURDATE(),
+'sarahk',
+'suzys');
 
+-- BEHAVIOR -------------------------
+
+-- 2 behaviors for timmyt
 
 INSERT INTO `behavior_db`.`behaviors`
 (`active`,
@@ -144,7 +54,27 @@ VALUES
 '0',
 CURDATE(),
 CURDATE(),
-'billy');
+'timmyt');
+
+INSERT INTO `behavior_db`.`behaviors`
+(`active`,
+`behavior`,
+`goalMet`,
+`goalTracked`,
+`average`,
+`createdAt`,
+`updatedAt`,
+`StudentUserName`)
+VALUES
+('1',
+'Mind your own business',
+'0',
+'0',
+'0',
+CURDATE(),
+CURDATE(),
+'timmyt');
+
 
 INSERT INTO `behavior_db`.`behaviors`
 (`active`,
@@ -163,7 +93,7 @@ VALUES
 '0',
 CURDATE(),
 CURDATE(),
-'jodi');
+'marym');
 
 INSERT INTO `behavior_db`.`behaviors`
 (`active`,
@@ -182,6 +112,217 @@ VALUES
 '0',
 CURDATE(),
 CURDATE(),
-'billyboy');
+'suzys');
+
+-- BEHAVIOR DATA ---------------------------------
+
+INSERT INTO `behavior_db`.`behavdata`
+(`behavInfo`,
+`createdAt`,
+`updatedAt`,
+`BehaviorId`)
+VALUES
+(false,
+'2019-03-07 22:01:20',
+'2019-03-07 22:01:20',
+'1');
+
+INSERT INTO `behavior_db`.`behavdata`
+(`behavInfo`,
+`createdAt`,
+`updatedAt`,
+`BehaviorId`)
+VALUES
+(false,
+'2019-03-07 22:01:20',
+'2019-03-07 22:01:20',
+'2');
+
+INSERT INTO `behavior_db`.`behavdata`
+(`behavInfo`,
+`createdAt`,
+`updatedAt`,
+`BehaviorId`)
+VALUES
+(false,
+'2019-03-07 22:01:20',
+'2019-03-07 22:01:20',
+'3');
+
+INSERT INTO `behavior_db`.`behavdata`
+(`behavInfo`,
+`createdAt`,
+`updatedAt`,
+`BehaviorId`)
+VALUES
+(true,
+'2019-03-06 12:00:00',
+'2019-03-06 12:00:00',
+'4');
+
+INSERT INTO `behavior_db`.`behavdata`
+(`behavInfo`,
+`createdAt`,
+`updatedAt`,
+`BehaviorId`)
+VALUES
+(false,
+'2019-03-06 12:15:00',
+'2019-03-06 12:15:00',
+'4');
+
+INSERT INTO `behavior_db`.`behavdata`
+(`behavInfo`,
+`createdAt`,
+`updatedAt`,
+`BehaviorId`)
+VALUES
+(true,
+'2019-03-06 12:45:00',
+'2019-03-06 12:45:00',
+'4');
+
+INSERT INTO `behavior_db`.`behavdata`
+(`behavInfo`,
+`createdAt`,
+`updatedAt`,
+`BehaviorId`)
+VALUES
+(true,
+'2019-03-06 13:00:00',
+'2019-03-06 13:00:00',
+'4');
+
+INSERT INTO `behavior_db`.`behavdata`
+(`behavInfo`,
+`createdAt`,
+`updatedAt`,
+`BehaviorId`)
+VALUES
+(true,
+'2019-03-06 13:15:00',
+'2019-03-06 13:15:00',
+'4');
+
+INSERT INTO `behavior_db`.`behavdata`
+(`behavInfo`,
+`createdAt`,
+`updatedAt`,
+`BehaviorId`)
+VALUES
+(false,
+'2019-03-06 13:30:00',
+'2019-03-06 13:30:00',
+'4');
+
+INSERT INTO `behavior_db`.`behavdata`
+(`behavInfo`,
+`createdAt`,
+`updatedAt`,
+`BehaviorId`)
+VALUES
+(true,
+'2019-03-06 14:00:00',
+'2019-03-06 14:00:00',
+'4');
+
+INSERT INTO `behavior_db`.`behavdata`
+(`behavInfo`,
+`createdAt`,
+`updatedAt`,
+`BehaviorId`)
+VALUES
+(true,
+'2019-03-06 14:15:00',
+'2019-03-06 14:15:00',
+'4');
+
+INSERT INTO `behavior_db`.`behavdata`
+(`behavInfo`,
+`createdAt`,
+`updatedAt`,
+`BehaviorId`)
+VALUES
+(true,
+'2019-03-06 14:30:00',
+'2019-03-06 14:30:00',
+'4');
+
+INSERT INTO `behavior_db`.`behavdata`
+(`behavInfo`,
+`createdAt`,
+`updatedAt`,
+`BehaviorId`)
+VALUES
+(true,
+'2019-03-07 12:00:00',
+'2019-03-07 12:00:00',
+'4');
+
+INSERT INTO `behavior_db`.`behavdata`
+(`behavInfo`,
+`createdAt`,
+`updatedAt`,
+`BehaviorId`)
+VALUES
+(false,
+'2019-03-07 12:15:00',
+'2019-03-07 12:15:00',
+'4');
+
+INSERT INTO `behavior_db`.`behavdata`
+(`behavInfo`,
+`createdAt`,
+`updatedAt`,
+`BehaviorId`)
+VALUES
+(true,
+'2019-03-07 12:45:00',
+'2019-03-07 12:45:00',
+'4');
+
+INSERT INTO `behavior_db`.`behavdata`
+(`behavInfo`,
+`createdAt`,
+`updatedAt`,
+`BehaviorId`)
+VALUES
+(true,
+'2019-03-07 13:00:00',
+'2019-03-07 13:00:00',
+'4');
+
+INSERT INTO `behavior_db`.`behavdata`
+(`behavInfo`,
+`createdAt`,
+`updatedAt`,
+`BehaviorId`)
+VALUES
+(true,
+'2019-03-07 13:15:00',
+'2019-03-07 13:15:00',
+'4');
+
+INSERT INTO `behavior_db`.`behavdata`
+(`behavInfo`,
+`createdAt`,
+`updatedAt`,
+`BehaviorId`)
+VALUES
+(false,
+'2019-03-07 13:30:00',
+'2019-03-07 13:30:00',
+'4');
+
+INSERT INTO `behavior_db`.`behavdata`
+(`behavInfo`,
+`createdAt`,
+`updatedAt`,
+`BehaviorId`)
+VALUES
+(true,
+'2019-03-07 14:00:00',
+'2019-03-07 14:00:00',
+'4');
 
 
