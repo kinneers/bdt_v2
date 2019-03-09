@@ -117,21 +117,23 @@
             BehaviorId: dbDataContainer[i].id,
           };
           if (met === undefined && notMet === undefined) {
-            return;
-          }
+            // eslint-disable-next-line no-console
+            console.log("Met or Not Met condition tracked");
+            body.behavInfo = null;
+          } else {
           if (met === "on") {
             //post to student[i] or student.id
             //${i} will change to data[i].id 
-            body.behavInfo = true;
+            body.behavInfo = 1;
           }
           else {
-            body.behavInfo = false;
+            body.behavInfo = 0;
           }
-          $.post('/ratings', body, function (req, res) {
-            // console.log(body);
-            // console.log(res);
-          });
-
+            $.post('/ratings', body, function (req, res) {
+              console.log(body);
+              console.log(res);
+            });
+          }
         }
         $(".with-gap").prop("checked", false);
       })
