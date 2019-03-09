@@ -26,12 +26,22 @@
             var studArray = [];
             var order = (i + 1);
             var name = dbData[i].studentname;
-            var bx = `<a href='/chartdata/${dbData[i].id}'>${dbData[i].behavior}</a>`;
+            var bx = dbData[i].behavior;
             var eachId = dbData[i].id;
             bxId.push(eachId);
             studArray.push(order, name, bx);
             data.push(studArray);
+
+            var sidebar = `<li class="bold waves-effect"><a class="collapsible-header">${name}<i class="material-icons chevron">chevron_left</i></a>
+              <div class="collapsible-body">
+                <ul>
+                  <li><a href="#" class="waves-effect">${bx}<i class="material-icons">web</i></a></li>
+                </ul>
+              </div>
+            </li>`;
+            $(".collapsible-accordion").append(sidebar);
         }
+      
         // console.log("DATA: ", data);
 
         // e = element,  i = index
@@ -165,3 +175,14 @@
 
   });
 })(jQuery);
+
+
+/*<li class="bold waves-effect"><a class="collapsible-header">Student 1<i class="material-icons chevron">chevron_left</i></a>
+              <div class="collapsible-body">
+                <ul>
+                  <li><a href="dashboard.html" class="waves-effect">Bx1<i class="material-icons">web</i></a></li>
+                  <li><a href="pages-fixed-chart.html" class="waves-effect">Bx2<i class="material-icons">list</i></a></li>
+                  <li><a href="pages-grid.html" class="waves-effect">Bx3<i class="material-icons">dashboard</i></a></li>
+                </ul>
+              </div>
+            </li>*/
