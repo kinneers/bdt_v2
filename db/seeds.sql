@@ -177,7 +177,7 @@ VALUES
 '0',
 CURDATE(),
 CURDATE(),
-'mmartin');
+'marym');
 
 INSERT INTO `behavior_db`.`behaviors`
 (`active`,
@@ -196,7 +196,7 @@ VALUES
 '0',
 CURDATE(),
 CURDATE(),
-'ssmith');
+'suzys');
 
 -- BEHAVIOR DATA ---------------------------------
 
