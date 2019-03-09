@@ -23,6 +23,8 @@ module.exports = function (app, passport) {
         //models.sequelize.update();
     });
 
+    
+
 
     //PLEASE KEEP THIS LAST IN ORDER
     //Custom middleware to protect dashboard route

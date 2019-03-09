@@ -1,3 +1,87 @@
+-- TEACHERS ---------------------------
+
+INSERT INTO `behavior_db`.`teachers`
+(`userName`,
+`firstname`,
+`lastname`,
+`authLevel`,
+`email`,
+`active`,
+`createdAt`,
+`updatedAt`,
+`last_login`,
+`status`)
+VALUES
+('sarahk',
+'Sarah',
+'Kinneer',
+'20',
+'',
+'1',
+CURDATE(),
+CURDATE(),
+CURDATE(),
+'active');
+
+-- STUDENTS ---------------------
+
+INSERT INTO `behavior_db`.`students`
+(`userName`,
+`firstname`,
+`lastname`,
+`active`,
+`createdAt`,
+`updatedAt`,
+`last_login`,
+`status`)
+VALUES
+('timmyt',
+'Timmy',
+'Travis',
+'1',
+CURDATE(),
+CURDATE(),
+CURDATE(),
+'active');
+
+INSERT INTO `behavior_db`.`students`
+(`userName`,
+`firstname`,
+`lastname`,
+`active`,
+`createdAt`,
+`updatedAt`,
+`last_login`,
+`status`)
+VALUES
+('marym',
+'Mary',
+'Martin',
+'1',
+CURDATE(),
+CURDATE(),
+CURDATE(),
+'active');
+
+INSERT INTO `behavior_db`.`students`
+(`userName`,
+`firstname`,
+`lastname`,
+`active`,
+`createdAt`,
+`updatedAt`,
+`last_login`,
+`status`)
+VALUES
+('suzys',
+'Suzy',
+'Smith',
+'1',
+CURDATE(),
+CURDATE(),
+CURDATE(),
+'active');
+
 -- TEACHER-STUDENT -------------------------------
 
 INSERT INTO `behavior_db`.`teacherstudents`
