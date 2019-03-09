@@ -1,5 +1,6 @@
 //Require models
 var models = require('../models');
+var path = require('path');
 
 //Routes
 module.exports = function (app, passport) {
@@ -12,19 +13,27 @@ module.exports = function (app, passport) {
     });
 
     app.post("/ratings", isLoggedIn, function (req, res) {
-        console.log("Body", req.body);
+        //console.log("Body", req.body);
         models.Behavdata.create(req.body, function (request, response, err) {
             if (!err) {
-                console.log('no error')
+                //console.log('no error')
                 res.status(200).send("Data Submitted");
             }
         });
-        
         //models.sequelize.update();
     });
 
-    
-
+    //Route to chart page on click of behavior
+    app.get('/chartdata/:behavid', isLoggedIn, function(req, res) {
+        models.Behavdata.findAll({
+            where: {
+              BehaviorId: req.params.behavid
+            }
+        }).then(function(result) {
+            res.sendFile(path.join(__dirname, "../public/line-charts.html"));
+            res.json(result);
+        });
+    });
 
     //PLEASE KEEP THIS LAST IN ORDER
     //Custom middleware to protect dashboard route
