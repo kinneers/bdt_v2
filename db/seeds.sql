@@ -1,5 +1,3 @@
--- TEACHERS ---------------------------
-
 INSERT INTO `behavior_db`.`teachers`
 (`userName`,
 `firstname`,

@@ -4,27 +4,26 @@ A Behavioral Tracking Application for whole-interval recording, designed for eas
 ## Developed by: Sarah Kinneer, Billy Sterling, and Jodi Woodard
 ## March, 2019
 
-# UPDATE ME!
-![Photo of Login Page](assets/images/..)
+### Login Page
+![Photo of Login Page](login.png)
 
-# UPDATE ME!
-![Photo of Teacher Dashboard](assets/images/..)
+### Teacher Dashboard
+![Photo of Teacher Dashboard](table.png)
 
-# UPDATE ME!
-![Photo of Student Charts](assets/images/..)
+### Behavior Graph
+![Photo of Student Charts](chart.png)
 
 ## Technologies Used:
 HTML5, CSS3, Materialize, JavaScript, jQuery, MySQL, Sequelize, Express, Chart, Passport, Moment, bCrypt
 
 ## Link to Live Site:
-# UPDATE ME!
-- [Log some (fictional) data!](https://kinneers.github.io/project-one) - Head to the live site and play with the app!
+- [Log some (fictional) data!](https://thawing-dawn-54915.herokuapp.com/) - Head to the live site and login with the demo username 'sarahk' and password 'a'!
 
 ## To Use the Live Site:
 - Sign in with your user id and password. You may view a demo site with the username 'sarahk' and the extra-super-secure password 'a'.
 - Since 'sarahk' is a staff member, you will see her dashboard page with several make-believe student goals ready for rating.
 - Feel free to enter data by selecting radio buttons telling whether or not each student met their behavior goals during a rating interval and clicking the 'SAVE DATA' button.  This saves a rating instance to the database.  It is up to the team working with each student to determine rating intervals.  Not all students necessarily need to be rated at each interval (the app is designed to handle null/undefined inputs).
-- Click on a student name in the left navigation pane to view that student's behavioral progress over time. These charts show the average percentage of intervals the identified goal was met each day.
+- Click on a student name in the left navigation pane and then the behavioral goal to view that student's behavioral progress over time. These charts show the average percentage of intervals the identified goal was met each day.
 
 ## Future Development:
 - There are plans to develop this application further, including adding student/parent and admin interfaces as well as additional behavioral monitoring features (such as student self-monitoring, frequency counts, duration recording, random instance recording, etc.).  We also plan to add additional security measures to ensure that student data is protected per FERPA and COPPA regulations.
