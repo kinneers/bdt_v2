@@ -1,4 +1,4 @@
-INSERT INTO `behavior_db`.`teachers`
+INSERT INTO `ifqqmoj8gh2zitgi`.`Teachers`
 (`userName`,
 `userPassword`,
 `firstName`,
@@ -24,7 +24,7 @@ CURDATE(),
 'active');
 
 
-INSERT INTO `behavior_db`.`students`
+INSERT INTO `ifqqmoj8gh2zitgi`.`Students`
 (`userName`,
 `userPassword`,
 `firstName`,
@@ -46,7 +46,7 @@ CURDATE(),
 'active');
 
 
-INSERT INTO `behavior_db`.`students`
+INSERT INTO `ifqqmoj8gh2zitgi`.`Students`
 (`userName`,
 `userPassword`,
 `firstName`,
@@ -68,7 +68,7 @@ CURDATE(),
 'active');
 
 
-INSERT INTO `behavior_db`.`students`
+INSERT INTO `ifqqmoj8gh2zitgi`.`Students`
 (`userName`,
 `userPassword`,
 `firstName`,
@@ -90,7 +90,7 @@ CURDATE(),
 'active');
 
 
-INSERT INTO `behavior_db`.`teacherstudents`
+INSERT INTO `ifqqmoj8gh2zitgi`.`Teacherstudents`
 (`createdAt`,
 `updatedAt`,
 `TeacherUserName`,
@@ -102,7 +102,7 @@ CURDATE(),
 'billy');
 
 
-INSERT INTO `behavior_db`.`teacherstudents`
+INSERT INTO `ifqqmoj8gh2zitgi`.`Teacherstudents`
 (`createdAt`,
 `updatedAt`,
 `TeacherUserName`,
@@ -114,7 +114,7 @@ CURDATE(),
 'jodi');
 
 
-INSERT INTO `behavior_db`.`teacherstudents`
+INSERT INTO `ifqqmoj8gh2zitgi`.`teacherstudents`
 (`createdAt`,
 `updatedAt`,
 `TeacherUserName`,
@@ -127,7 +127,7 @@ CURDATE(),
 
 
 
-INSERT INTO `behavior_db`.`behaviors`
+INSERT INTO `ifqqmoj8gh2zitgi`.`behaviors`
 (`active`,
 `behavior`,
 `goalMet`,
@@ -146,7 +146,7 @@ CURDATE(),
 CURDATE(),
 'billy');
 
-INSERT INTO `behavior_db`.`behaviors`
+INSERT INTO `ifqqmoj8gh2zitgi`.`behaviors`
 (`active`,
 `behavior`,
 `goalMet`,
@@ -165,7 +165,7 @@ CURDATE(),
 CURDATE(),
 'jodi');
 
-INSERT INTO `behavior_db`.`behaviors`
+INSERT INTO `ifqqmoj8gh2zitgi`.`behaviors`
 (`active`,
 `behavior`,
 `goalMet`,
