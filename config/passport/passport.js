@@ -2,6 +2,7 @@ var bCrypt = require('bcrypt-nodejs');
 
 module.exports = function(passport, user) {
     var User = user;
+
     var LocalStrategy = require('passport-local').Strategy;
     
     //Local strategy for signup (will be needed for use when signing users up as the password encryption is here)
