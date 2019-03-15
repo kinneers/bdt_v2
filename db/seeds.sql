@@ -1,6 +1,6 @@
 -- TEACHERS ---------------------------
 
-INSERT INTO `behavior_db`.`teachers`
+INSERT INTO `ifqqmoj8gh2zitgi`.`Teachers`
 (`userName`,
 `firstname`,
 `lastname`,
@@ -25,7 +25,7 @@ CURDATE(),
 
 -- STUDENTS ---------------------
 
-INSERT INTO `behavior_db`.`students`
+INSERT INTO `ifqqmoj8gh2zitgi`.`Students`
 (`userName`,
 `firstname`,
 `lastname`,
@@ -44,7 +44,7 @@ CURDATE(),
 CURDATE(),
 'active');
 
-INSERT INTO `behavior_db`.`students`
+INSERT INTO `ifqqmoj8gh2zitgi`.`Students`
 (`userName`,
 `firstname`,
 `lastname`,
@@ -63,7 +63,7 @@ CURDATE(),
 CURDATE(),
 'active');
 
-INSERT INTO `behavior_db`.`students`
+INSERT INTO `ifqqmoj8gh2zitgi`.`Students`
 (`userName`,
 `firstname`,
 `lastname`,
@@ -84,7 +84,7 @@ CURDATE(),
 
 -- TEACHER-STUDENT -------------------------------
 
-INSERT INTO `behavior_db`.`teacherstudents`
+INSERT INTO `ifqqmoj8gh2zitgi`.`Teacherstudents`
 (`createdAt`,
 `updatedAt`,
 `TeacherUserName`,
@@ -95,7 +95,7 @@ CURDATE(),
 'sarahk',
 'timmyt');
 
-INSERT INTO `behavior_db`.`teacherstudents`
+INSERT INTO `ifqqmoj8gh2zitgi`.`Teacherstudents`
 (`createdAt`,
 `updatedAt`,
 `TeacherUserName`,
@@ -106,7 +106,7 @@ CURDATE(),
 'sarahk',
 'marym');
 
-INSERT INTO `behavior_db`.`teacherstudents`
+INSERT INTO `ifqqmoj8gh2zitgi`.`Teacherstudents`
 (`createdAt`,
 `updatedAt`,
 `TeacherUserName`,
@@ -121,7 +121,7 @@ CURDATE(),
 
 -- 2 behaviors for timmyt
 
-INSERT INTO `behavior_db`.`behaviors`
+INSERT INTO `ifqqmoj8gh2zitgi`.`Behaviors`
 (`active`,
 `behavior`,
 `goalMet`,
@@ -140,7 +140,7 @@ CURDATE(),
 CURDATE(),
 'timmyt');
 
-INSERT INTO `behavior_db`.`behaviors`
+INSERT INTO `ifqqmoj8gh2zitgi`.`Behaviors`
 (`active`,
 `behavior`,
 `goalMet`,
@@ -160,7 +160,7 @@ CURDATE(),
 'timmyt');
 
 
-INSERT INTO `behavior_db`.`behaviors`
+INSERT INTO `ifqqmoj8gh2zitgi`.`Behaviors`
 (`active`,
 `behavior`,
 `goalMet`,
@@ -179,7 +179,7 @@ CURDATE(),
 CURDATE(),
 'marym');
 
-INSERT INTO `behavior_db`.`behaviors`
+INSERT INTO `ifqqmoj8gh2zitgi`.`Behaviors`
 (`active`,
 `behavior`,
 `goalMet`,
@@ -200,7 +200,7 @@ CURDATE(),
 
 -- BEHAVIOR DATA ---------------------------------
 
-INSERT INTO `behavior_db`.`behavdata`
+INSERT INTO `ifqqmoj8gh2zitgi`.`Behavdata`
 (`behavInfo`,
 `createdAt`,
 `updatedAt`,
@@ -211,7 +211,7 @@ VALUES
 '2019-03-07 22:01:20',
 '1');
 
-INSERT INTO `behavior_db`.`behavdata`
+INSERT INTO `ifqqmoj8gh2zitgi`.`Behavdata`
 (`behavInfo`,
 `createdAt`,
 `updatedAt`,
@@ -222,7 +222,7 @@ VALUES
 '2019-03-07 22:01:20',
 '2');
 
-INSERT INTO `behavior_db`.`behavdata`
+INSERT INTO `ifqqmoj8gh2zitgi`.`Behavdata`
 (`behavInfo`,
 `createdAt`,
 `updatedAt`,
@@ -233,7 +233,7 @@ VALUES
 '2019-03-07 22:01:20',
 '3');
 
-INSERT INTO `behavior_db`.`behavdata`
+INSERT INTO `ifqqmoj8gh2zitgi`.`Behavdata`
 (`behavInfo`,
 `createdAt`,
 `updatedAt`,
@@ -244,7 +244,7 @@ VALUES
 '2019-03-06 12:00:00',
 '4');
 
-INSERT INTO `behavior_db`.`behavdata`
+INSERT INTO `ifqqmoj8gh2zitgi`.`Behavdata`
 (`behavInfo`,
 `createdAt`,
 `updatedAt`,
@@ -255,7 +255,7 @@ VALUES
 '2019-03-06 12:15:00',
 '4');
 
-INSERT INTO `behavior_db`.`behavdata`
+INSERT INTO `ifqqmoj8gh2zitgi`.`Behavdata`
 (`behavInfo`,
 `createdAt`,
 `updatedAt`,
@@ -266,7 +266,7 @@ VALUES
 '2019-03-06 12:45:00',
 '4');
 
-INSERT INTO `behavior_db`.`behavdata`
+INSERT INTO `ifqqmoj8gh2zitgi`.`Behavdata`
 (`behavInfo`,
 `createdAt`,
 `updatedAt`,
@@ -277,7 +277,7 @@ VALUES
 '2019-03-06 13:00:00',
 '4');
 
-INSERT INTO `behavior_db`.`behavdata`
+INSERT INTO `ifqqmoj8gh2zitgi`.`Behavdata`
 (`behavInfo`,
 `createdAt`,
 `updatedAt`,
@@ -288,7 +288,7 @@ VALUES
 '2019-03-06 13:15:00',
 '4');
 
-INSERT INTO `behavior_db`.`behavdata`
+INSERT INTO `ifqqmoj8gh2zitgi`.`Behavdata`
 (`behavInfo`,
 `createdAt`,
 `updatedAt`,
@@ -299,7 +299,7 @@ VALUES
 '2019-03-06 13:30:00',
 '4');
 
-INSERT INTO `behavior_db`.`behavdata`
+INSERT INTO `ifqqmoj8gh2zitgi`.`Behavdata`
 (`behavInfo`,
 `createdAt`,
 `updatedAt`,
@@ -310,7 +310,7 @@ VALUES
 '2019-03-06 14:00:00',
 '4');
 
-INSERT INTO `behavior_db`.`behavdata`
+INSERT INTO `ifqqmoj8gh2zitgi`.`Behavdata`
 (`behavInfo`,
 `createdAt`,
 `updatedAt`,
@@ -321,7 +321,7 @@ VALUES
 '2019-03-06 14:15:00',
 '4');
 
-INSERT INTO `behavior_db`.`behavdata`
+INSERT INTO `ifqqmoj8gh2zitgi`.`Behavdata`
 (`behavInfo`,
 `createdAt`,
 `updatedAt`,
@@ -332,7 +332,7 @@ VALUES
 '2019-03-06 14:30:00',
 '4');
 
-INSERT INTO `behavior_db`.`behavdata`
+INSERT INTO `ifqqmoj8gh2zitgi`.`Behavdata`
 (`behavInfo`,
 `createdAt`,
 `updatedAt`,
@@ -343,7 +343,7 @@ VALUES
 '2019-03-07 12:00:00',
 '4');
 
-INSERT INTO `behavior_db`.`behavdata`
+INSERT INTO `ifqqmoj8gh2zitgi`.`Behavdata`
 (`behavInfo`,
 `createdAt`,
 `updatedAt`,
@@ -354,7 +354,7 @@ VALUES
 '2019-03-07 12:15:00',
 '4');
 
-INSERT INTO `behavior_db`.`behavdata`
+INSERT INTO `ifqqmoj8gh2zitgi`.`Behavdata`
 (`behavInfo`,
 `createdAt`,
 `updatedAt`,
@@ -365,7 +365,7 @@ VALUES
 '2019-03-07 12:45:00',
 '4');
 
-INSERT INTO `behavior_db`.`behavdata`
+INSERT INTO `ifqqmoj8gh2zitgi`.`Behavdata`
 (`behavInfo`,
 `createdAt`,
 `updatedAt`,
@@ -376,7 +376,7 @@ VALUES
 '2019-03-07 13:00:00',
 '4');
 
-INSERT INTO `behavior_db`.`behavdata`
+INSERT INTO `ifqqmoj8gh2zitgi`.`Behavdata`
 (`behavInfo`,
 `createdAt`,
 `updatedAt`,
@@ -387,7 +387,7 @@ VALUES
 '2019-03-07 13:15:00',
 '4');
 
-INSERT INTO `behavior_db`.`behavdata`
+INSERT INTO `ifqqmoj8gh2zitgi`.`Behavdata`
 (`behavInfo`,
 `createdAt`,
 `updatedAt`,
@@ -398,7 +398,7 @@ VALUES
 '2019-03-07 13:30:00',
 '4');
 
-INSERT INTO `behavior_db`.`behavdata`
+INSERT INTO `ifqqmoj8gh2zitgi`.`Behavdata`
 (`behavInfo`,
 `createdAt`,
 `updatedAt`,

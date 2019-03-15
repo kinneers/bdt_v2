@@ -1,4 +1,4 @@
--- Drops the behavior_db if it exists currently --
-CREATE DATABASE IF NOT EXISTS behavior_db;
+-- Drops the databse if it exists currently --
+CREATE DATABASE IF NOT EXISTS ifqqmoj8gh2zitgi;
 -- Creates the "student behavior" database --
-USE behavior_db;
+USE ifqqmoj8gh2zitgi;
