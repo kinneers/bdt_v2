@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    const Behavior = sequelize.define("Behavior", {
+    const Behavior = sequelize.define("behavior", {
         id: {
             type: DataTypes.INTEGER,
             primaryKey: true,

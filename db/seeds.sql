@@ -1,4 +1,4 @@
-INSERT INTO `ifqqmoj8gh2zitgi`.`Teachers`
+INSERT INTO `ifqqmoj8gh2zitgi`.`teachers`
 (`userName`,
 `userPassword`,
 `firstName`,
@@ -24,7 +24,7 @@ CURDATE(),
 'active');
 
 
-INSERT INTO `ifqqmoj8gh2zitgi`.`Students`
+INSERT INTO `ifqqmoj8gh2zitgi`.`students`
 (`userName`,
 `userPassword`,
 `firstName`,
@@ -46,7 +46,7 @@ CURDATE(),
 'active');
 
 
-INSERT INTO `ifqqmoj8gh2zitgi`.`Students`
+INSERT INTO `ifqqmoj8gh2zitgi`.`students`
 (`userName`,
 `userPassword`,
 `firstName`,
@@ -68,7 +68,7 @@ CURDATE(),
 'active');
 
 
-INSERT INTO `ifqqmoj8gh2zitgi`.`Students`
+INSERT INTO `ifqqmoj8gh2zitgi`.`students`
 (`userName`,
 `userPassword`,
 `firstName`,
@@ -90,7 +90,7 @@ CURDATE(),
 'active');
 
 
-INSERT INTO `ifqqmoj8gh2zitgi`.`Teacherstudents`
+INSERT INTO `ifqqmoj8gh2zitgi`.`teacherstudents`
 (`createdAt`,
 `updatedAt`,
 `TeacherUserName`,
@@ -102,7 +102,7 @@ CURDATE(),
 'billy');
 
 
-INSERT INTO `ifqqmoj8gh2zitgi`.`Teacherstudents`
+INSERT INTO `ifqqmoj8gh2zitgi`.`teacherstudents`
 (`createdAt`,
 `updatedAt`,
 `TeacherUserName`,
@@ -183,5 +183,3 @@ VALUES
 CURDATE(),
 CURDATE(),
 'billyboy');
-
-
