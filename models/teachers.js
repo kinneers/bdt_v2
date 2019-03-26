@@ -12,10 +12,6 @@ module.exports = function(sequelize, DataTypes) {
               }
             }
         },
-        userPassword: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
         firstName: {
             type: DataTypes.STRING(50),
             allowNull: false,

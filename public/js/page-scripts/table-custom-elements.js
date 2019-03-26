@@ -8,40 +8,52 @@
       $.get('/current-user', function (current_user) {
         currentUser = current_user.username;
         console.log(currentUser + ' is the current user.');
+        $('#username-container').text(currentUser);
         return currentUser;
-      })
+      });
     }
     userNow();
 
-    //This is all you need to update to pull in student data
-    // var data =
-    //   [["1", "Tiger Nixon", "raise hand before speaking"],
-    //   ["2", "Tiger Nixon", "raise hand before speaking"],
-    //   ["3", "Tiger Nixon", "raise hand before speaking"]
-    //   ];
-
     var data = [];
+    var dbDataContainer = [];
+    var bxId = [];
 
     function getStudents() {
       $.get("/teacher/students", function (dbData) {
-        console.log(dbData);
+        // console.log(dbData);
+        dbDataContainer = dbData;
         for (var i = 0; i < dbData.length; i++) {
-          var studArray = [];
-          var order = (i + 1);
-          var name = dbData[i].studentname;
-          var bx = dbData[i].behavior;
-          studArray.push(order, name, bx);
-          data.push(studArray);
-        }
-        console.log("DATA: ", data);
+            var studArray = [];
+            var order = (i + 1);
+            var name = dbData[i].studentname;
+            var bx = dbData[i].behavior;
+            var eachId = dbData[i].id;
+            bxId.push(eachId);
+            studArray.push(order, name, bx);
+            data.push(studArray);
 
+            var sidebar = `<li class="bold waves-effect"><a class="collapsible-header">${name}<i class="material-icons chevron">chevron_left</i></a>
+              <div class="collapsible-body">
+                <ul>
+                  <li><i class="material-icons">web</i><button id="getChart" value="${bx}" class="waves-effect">${bx}</button></li>
+                </ul>
+              </div>
+            </li>`;
+            $(".collapsible-accordion").append(sidebar);
+        }
+        
+        $('#sidenav-left').on('click tap', '#getChart', function(event) {
+            var bx = event.target.value;
+            makeChart(bx);
+        });
+    
         // e = element,  i = index
         data.forEach((e, i) => {
           return (
             e.push(
-              `<form id="student-${i}"><label><input class="with-gap" id="met-${i}" name="group-${i}" type="radio"/>
+              `<form id="${dbData[i].id}"><label><input class="with-gap" id="met-${dbData[i].id}" name="group-${dbData[i].id}" type="radio"/>
       <span>Met</span> </label>
-      <label><input class="with-gap" id="notMet-${i}" name="group-${i}" type="radio"/>
+      <label><input class="with-gap" id="notMet-${dbData[i].id}" name="group-${dbData[i].id}" type="radio"/>
       <span>Not Met</span></label></form>`
             )
           )
@@ -93,28 +105,85 @@
             $(rows).toggleClass('selected', this.checked);
           });
         }
-        $(".container").on("click", "#saveData", function (event) {
-          console.log(data);
-          for (var i = 0; i < data.length; i++) {
-            var met = $(`#met-${i}:checked`).val();
-            //var met = $(`#met-${data[i].id}:checked`).val();
-            var notMet = $(`#notMet-${i}:checked`).val();
-            console.log(i);
-            console.log(met);
-            console.log(notMet);
-            if (met === "on") {
-              //ajax call or something to post to db
-              //post to student[i] or student.id
-              //${i} will change to data[i].id
-            }
-            //else return 0 instead
-          }
-          $(".with-gap").prop("checked", false);
-        });
       })
+      $(".container").on("click", "#saveData", function (event) {
+        //console.log(data);
+        for (var i = 0; i < dbDataContainer.length; i++) {
+          var met = $(`#met-${dbDataContainer[i].id}:checked`).val();
+          //var met = $(`#met-${data[i].BehaviorId}:checked`).val();
+          var notMet = $(`#notMet-${dbDataContainer[i].id}:checked`).val();
+        //   console.log(dbDataContainer[i].id);
+        //   console.log(met);
+        //   console.log(notMet);
 
+          var body = {
+            BehaviorId: dbDataContainer[i].id,
+          };
+          if (met === undefined && notMet === undefined) {
+            // eslint-disable-next-line no-console
+            console.log("Met or Not Met condition tracked");
+            body.behavInfo = null;
+          } else {
+          if (met === "on") {
+            //post to student[i] or student.id
+            //${i} will change to data[i].id 
+            body.behavInfo = 1;
+          }
+          else {
+            body.behavInfo = 0;
+          }
+            $.post('/ratings', body, function (req, res) {
+              console.log(body);
+              console.log(res);
+
+              //makeChart(chartData);
+            });
+          }
+        }
+        $(".with-gap").prop("checked", false);
+      })
     }
     getStudents();
+
+    function makeChart(bx) {
+        //$.get("/chartdata", function (chartData) {
+            var dateArray = ['2019/03/04', '2019/03/05', '2019/03/06', '2019/03/07', '2019/03/08'];
+            var dataArray = ['35', '50', '40', '65', '70'];
+            //GET THE DATA
+            var bxDefinition = bx;
+            $('#title').text(bxDefinition);
+            //Create chart for behavior
+            //Note that the value for getElementById must come from the dynamically added HTML 
+            var ctx = document.getElementById("ourAmazingChart").getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: dateArray,
+                    datasets: [{
+                        label: 'Progress',
+                        data: dataArray,
+                        backgroundColor: [
+                            'rgba(80, 58, 88, 0.2)',
+                        ],
+                        borderColor: [
+                            'rgba(80, 58, 88, 1)',
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero:true,
+                                max: 100
+                            }
+                        }]
+                    }
+                }
+            });
+        //});
+    }
+
   });
-}
-  (jQuery));
+})(jQuery);

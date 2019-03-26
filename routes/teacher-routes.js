@@ -1,5 +1,6 @@
 //Require models
 var models = require('../models');
+var path = require('path');
 
 //Routes
 module.exports = function(app, passport) {
@@ -30,10 +31,35 @@ module.exports = function(app, passport) {
         });
     });
 
+    // //Send dates for bx chart
+    // app.post('/sendID', isLoggedIn, function(req, res) {
+    //     app.set('id', req.body.behavid);
+    // });
+    // app.get('/dates', isLoggedIn, function(req, res) {
+    //     //console.log('BehavID: ', parseInt(req)); //This is the behavior id
+    //     var bxID = {retrievedData: app.get('data')};
+    //     models.sequelize.query(
+    //         `SELECT DISTINCT DATE(createdAt) AS date FROM behavior_db.behavdata WHERE BehaviorId = '${bxID}' ORDER BY date;`
+    //     ).spread((dates, metadata) => {
+    //         res.json(dates);
+    //     })
+    // });
+
+    // //Send averages for bx chart
+    // app.get('/chartdata', isLoggedIn, function(req, res) {
+    //     console.log(req.body); //This is the behavior id
+    //     var bxID = req.body;
+    //     // models.sequelize.query(
+
+    //     // ).spread((chartData, metadata) => {
+    //     //     res.json(chartData);
+    //     // })
+    // });
+
     //PLEASE KEEP THIS LAST IN ORDER
     //Custom middleware to protect dashboard route
     function isLoggedIn(req, res, next) {
-        if(req.isAuthenticated())
+        if (req.isAuthenticated())
             return next();
         res.redirect('/signin');
     }
