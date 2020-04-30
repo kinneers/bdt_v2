@@ -33,7 +33,7 @@
     "grunt-rename": "^0.1.4",
     "grunt-sass": "^1.1.0",
     "grunt-text-replace": "^0.4.0",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "node-sass": "^3.4.2"
   },
   "scripts": {
